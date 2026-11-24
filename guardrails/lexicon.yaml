@@ -1,0 +1,74 @@
+# Terms blocked in follow-up drafts. Matched case-insensitively on whole words,
+# after exact product names and supplied Sephora tags are masked.
+# Step names ("treatment", "traitement", "cleanser", "nettoyant") are allowed.
+
+medical:
+  en:
+    - cure
+    - cures
+    - cured
+    - heal
+    - heals
+    - healed
+    - healing
+    - treats
+    - treating
+    - eczema
+    - rosacea
+    - psoriasis
+    - dermatitis
+    - infection
+    - disease
+    - medical
+    - prescription
+    - clinically proven
+    - dermatologist recommended
+  fr:
+    - guérir
+    - guérit
+    - guéri
+    - guérie
+    - soigne
+    - soigner
+    - soigné
+    - traite
+    - traiter
+    - eczéma
+    - rosacée
+    - psoriasis
+    - dermatite
+    - infection
+    - maladie
+    - médical
+    - médicale
+    - ordonnance
+    - cliniquement prouvé
+    - recommandé par les dermatologues
+
+environmental:
+  en:
+    - eco-friendly
+    - eco friendly
+    - clean
+    - green
+    - sustainable
+    - sustainably
+    - environmentally friendly
+    - planet-friendly
+    - planet
+    - non-toxic
+    - biodegradable
+    - carbon neutral
+  fr:
+    - écologique
+    - éco-responsable
+    - écoresponsable
+    - respectueux de l'environnement
+    - durable
+    - vert
+    - verte
+    - clean
+    - planète
+    - non toxique
+    - biodégradable
+    - neutre en carbone
