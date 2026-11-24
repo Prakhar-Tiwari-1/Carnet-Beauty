@@ -9,7 +9,7 @@ import numpy as np
 
 from sillage.config import load_config
 
-STAGES = ["step0", "data"]
+STAGES = ["step0", "data", "eval_val"]
 
 
 def _seed() -> None:
@@ -64,6 +64,63 @@ def stage_data() -> None:
               f"eval users with known skin type {(cf['skin_type'] != 'unknown').mean():.1%}")
     print(pd.DataFrame(rows).to_string(index=False))
     print(f"Concern tags kept: {sorted({c for cs in cat['concerns'] for c in cs})}")
+
+
+def _load_inputs():
+    import pandas as pd
+
+    from sillage.config import path
+    from sillage.data.ingest import read_products, read_reviews
+
+    products = read_products()
+    catalogue = pd.read_parquet(path("interim") / "catalogue.parquet")
+    return read_reviews(), catalogue, products.set_index("product_id")["price_usd"]
+
+
+def stage_eval_val() -> None:
+    """Baselines on validation period B; tunes the hand score's m and lambda."""
+    import pandas as pd
+
+    from sillage.config import path
+    from sillage.data.splits import get_periods
+    from sillage.eval.context import build_context
+    from sillage.eval.metrics import evaluate_scores
+    from sillage.eval.report import compare, to_table
+    from sillage.models import hand_score, popularity
+
+    cfg = load_config()
+    reviews, catalogue, prices = _load_inputs()
+    ctx = build_context(reviews, catalogue, prices, get_periods()["B"])
+    k = cfg["eval"]["k"]
+    hs = cfg["hand_score"]
+
+    # Tune on the catalogue slice (the headline comparison).
+    grid = []
+    for m in cfg["hand_score"]["m_grid"]:
+        for lam in cfg["hand_score"]["lambda_grid"]:
+            e = evaluate_scores(ctx, hand_score.score_v1(ctx, m, lam), "catalogue", k)
+            grid.append({"m": m, "lambda": lam, "ndcg@10": e["ndcg"].mean(), "recall@10": e["recall"].mean()})
+    grid = pd.DataFrame(grid).sort_values("ndcg@10", ascending=False)
+    print("Hand-score v1 grid (B, catalogue slice):")
+    print(grid.round(4).to_string(index=False))
+    best = grid.iloc[0]
+
+    scores = {
+        "random": popularity.random_scores(ctx, cfg["seed"]),
+        "popularity": popularity.score(ctx, cfg["seed"]),
+        "hand_v1_like_rate": hand_score.score_v1(ctx, best["m"], best["lambda"]),
+        "hand_v2_consultation": hand_score.score_v2(
+            ctx, hs["m"], hs["guard_gap"], hs["guard_min_n"], cfg["seed"]),
+    }
+    results = compare(ctx, scores)
+    print(to_table(results).to_string(index=False))
+
+    out = {"period": "B", "hand_v1_params": {"m": float(best["m"]), "lambda": float(best["lambda"])},
+           "hand_v2_params": {k2: hs[k2] for k2 in ("m", "guard_gap", "guard_min_n")},
+           "grid": grid.to_dict("records"), "results": results}
+    path("results").mkdir(exist_ok=True)
+    (path("results") / "val_baselines.json").write_text(json.dumps(out, indent=2))
+    print("Wrote results/val_baselines.json")
 
 
 def main(argv: list[str] | None = None) -> None:

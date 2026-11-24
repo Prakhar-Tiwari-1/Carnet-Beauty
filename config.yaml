@@ -30,11 +30,16 @@ eval:
   candidates_per_model: 100
 
 popularity:
-  window_days: 180
+  window_days: 365   # maximin over 4 backtests (see docs/decisions.md)
 
 hand_score:
+  # v1 (brief): grid kept so the failed attempt is reproducible
   m_grid: [5, 20, 50]
   lambda_grid: [0.0, 0.05, 0.1, 0.2]
+  # v2 (shipped): tuned on B, see results/val_baselines.json
+  m: 20
+  guard_gap: 0.10
+  guard_min_n: 20
 
 itemknn:
   shrink: 10

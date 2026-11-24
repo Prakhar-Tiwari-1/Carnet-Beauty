@@ -45,5 +45,11 @@ def product_features(reviews: pd.DataFrame, catalogue: pd.DataFrame, cutoff: pd.
     f["days_since_first"] = (cutoff - f["first_review"]).dt.days.fillna(-1)
     # Quartile of price within the step (0 = cheapest quarter, 3 = most expensive).
     pct = f.groupby("step")["price_usd"].rank(pct=True, method="average")
+    # Brand prior: how much the brand's products in the same step were liked recently.
+    # The only history-based volume signal a launch has.
+    brand = catalogue.set_index("product_id")["brand_name"]
+    f["brand_name"] = f["product_id"].map(brand)
+    f["brand_prior"] = np.log1p(f.groupby(["brand_name", "step"])["likes_recent"].transform("sum"))
+    f = f.drop(columns=["brand_name"])
     f["price_tier"] = np.minimum((pct * 4).astype(int), 3)
     return f.drop(columns=["rating_sum", "first_review"])
