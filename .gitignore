@@ -1,0 +1,16 @@
+# Data rules: raw data and archives are never committed
+data/
+*.zip
+# Secrets
+.env
+.streamlit/secrets.toml
+# Build outputs (results.json is reviewed before it is committed)
+results/cache/
+results/models/
+llm_cache/
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/

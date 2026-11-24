@@ -1,0 +1,44 @@
+seed: 42
+
+paths:
+  raw: data/raw
+  interim: data/interim        # gitignored (under data/)
+  results: results
+  app_data: app_data           # committed only after sign-off
+
+# Time split by submission_time. A = history, B = validation, C = test (touch once).
+periods:
+  b_start: "2022-07-01"
+  c_start: "2022-12-01"
+  c_end:   "2023-03-22"        # exclusive; data ends 2023-03-21
+
+positive_min_rating: 4
+min_group_size: 20             # hide any aggregate or slice with fewer reviews/users
+
+# tertiary_category -> routine step
+routine_steps:
+  "Face Wash & Cleansers": cleanser
+  "Face Serums": treatment
+  "Blemish & Acne Treatments": treatment
+  "Moisturizers": moisturiser
+  "Night Creams": moisturiser
+  "Face Oils": moisturiser
+
+eval:
+  k: 10
+  bootstrap_samples: 1000
+  candidates_per_model: 100
+
+popularity:
+  window_days: 180
+
+hand_score:
+  m_grid: [5, 20, 50]
+  lambda_grid: [0.0, 0.05, 0.1, 0.2]
+
+itemknn:
+  shrink: 10
+
+llm:
+  session_cap: 5
+  daily_cap: 100
