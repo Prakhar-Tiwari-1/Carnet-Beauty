@@ -36,7 +36,8 @@ def run() -> dict:
     test_users = pos.loc[pos["author_id"].isin(hist_len.index), "author_id"].unique()
     h = hist_len.reindex(test_users)
     first_seen = r.groupby("product_id")["submission_time"].min()
-    launch_share = (pos["product_id"].map(first_seen) >= c_start).mean()
+    returning_pos = pos[pos["author_id"].isin(hist_len.index)]
+    launch_share = (returning_pos["product_id"].map(first_seen) >= c_start).mean()
 
     val_users = r[(t >= b_start) & (t < c_start) & (r["rating"] >= 4) & ~r["incentivised"]]
     val_users = val_users["author_id"][val_users["author_id"].isin(r.loc[t < b_start, "author_id"])].nunique()
@@ -103,8 +104,8 @@ def run() -> dict:
         ).value_counts().sort_index().items()) + ".",
         "",
         "## Findings that shape the design",
-        f"- **Launches:** {_pct(launch_share)} of test positives are on products first reviewed "
-        "inside C. Collaborative filtering cannot score them, so evaluation reports a catalogue "
+        f"- **Launches:** {_pct(launch_share)} of returning clients' test positives are on "
+        "products first reviewed inside C. Collaborative filtering cannot score them, so evaluation reports a catalogue "
         "slice and a launch slice.",
         f"- **Sampled reviews:** {_pct(r['incentivised'].mean())} of reviews mention a free or "
         "gifted product (a lower bound from a text rule). They are excluded from positives.",
