@@ -9,7 +9,7 @@ import numpy as np
 
 from sillage.config import load_config
 
-STAGES = ["step0", "data", "eval_val"]
+STAGES = ["step0", "data", "eval_val", "train", "study", "test", "export"]
 
 
 def _seed() -> None:
@@ -123,14 +123,252 @@ def stage_eval_val() -> None:
     print("Wrote results/val_baselines.json")
 
 
+def _model_inputs(ctx, cfg):
+    """Shared by train and test: kNN fitted before the period cutoff, candidates, features."""
+    from sillage.models import popularity, ranker
+    from sillage.models.itemknn import ItemKNN
+
+    knn = ItemKNN(cfg["itemknn"]["shrink"]).fit(ctx.reviews, ctx.period.cutoff)
+    knn_sum, knn_max = knn.score(knn.liked_indices(ctx.users), ctx.products)
+    pop = popularity.score(ctx, cfg["seed"])
+    cand = ranker.candidates(ctx, pop, knn_sum, cfg["ranker"]["candidates_per_model"])
+    rows, cols = ranker.pairs(cand)
+    hs = cfg["hand_score"]
+    X = ranker.build_features(ctx, knn_sum, knn_max, rows, cols, hs["m"], hs["guard_gap"], hs["guard_min_n"])
+    y = ctx.target[rows, cols].astype(int)
+    return knn, knn_sum, pop, cand, rows, cols, X, y
+
+
+def stage_train() -> None:
+    """Item-kNN and LightGBM ranker, validated across periods; chooses the returning-client model.
+
+    Ranker: labels from T1, early stopping on T2, selection and ablation on B.
+    Final ranker for the test: trained on B labels with the selected settings.
+    """
+    import numpy as np
+    import pandas as pd
+
+    from sillage.config import path
+    from sillage.data.splits import Period, get_periods
+    from sillage.eval.context import build_context
+    from sillage.eval.metrics import evaluate_scores
+    from sillage.eval.report import compare, to_table
+    from sillage.models import hand_score, popularity, ranker
+
+    cfg = load_config()
+    seed, hs, k = cfg["seed"], cfg["hand_score"], cfg["eval"]["k"]
+    reviews, catalogue, prices = _load_inputs()
+    rc = cfg["ranker"]
+    ctxs = {
+        "T1": build_context(reviews, catalogue, prices, Period("T1", *map(pd.Timestamp, rc["t1"]))),
+        "T2": build_context(reviews, catalogue, prices, Period("T2", *map(pd.Timestamp, rc["t2"]))),
+        "B": get_periods()["B"],
+    }
+    ctxs["B"] = build_context(reviews, catalogue, prices, ctxs["B"])
+    inputs = {name: _model_inputs(ctx, cfg) for name, ctx in ctxs.items()}
+    data = {name: (v[6], v[7], v[4]) for name, v in inputs.items()}       # X, y, rows
+    ctx = ctxs["B"]
+    knn, knn_sum, pop, cand, rows, cols, X, y = inputs["B"]
+
+    for name, c in ctxs.items():
+        cand_n = inputs[name][3]
+        ct = c.slice_target("catalogue")
+        print(f"{name}: {len(c.users):,} clients, candidates/client {cand_n.sum(1).mean():.0f}, "
+              f"catalogue positives covered by candidates {(ct & cand_n).sum() / ct.sum():.1%}")
+
+    def b_scores(model, features):
+        return ranker.to_matrix(model, X, rows, cols, ctx.seen.shape, features)
+
+    grid = []
+    for nl in rc["grid"]["num_leaves"]:
+        for mcs in rc["grid"]["min_child_samples"]:
+            p = ranker.params(nl, mcs, seed)
+            model = ranker.train(data["T1"], p, ranker.ALL_FEATURES, data_stop=data["T2"])
+            e = evaluate_scores(ctx, b_scores(model, ranker.ALL_FEATURES), "catalogue", k)
+            grid.append({"num_leaves": nl, "min_child_samples": mcs, "rounds": model.best_iteration,
+                         "ndcg@10": e["ndcg"].mean(), "recall@10": e["recall"].mean(), "_model": model})
+            print(f"  ranker num_leaves={nl} min_child={mcs} rounds={model.best_iteration} "
+                  f"B catalogue ndcg {e['ndcg'].mean():.4f}")
+    best = max(grid, key=lambda g: g["ndcg@10"])
+    best_model, best_p = best["_model"], ranker.params(best["num_leaves"], best["min_child_samples"], seed)
+
+    ablation = [{"dropped": "none", "ndcg@10": best["ndcg@10"], "recall@10": best["recall@10"]}]
+    for group, feats in ranker.GROUPS.items():
+        keep = [f for f in ranker.ALL_FEATURES if f not in feats]
+        m = ranker.train(data["T1"], best_p, keep, data_stop=data["T2"])
+        e = evaluate_scores(ctx, b_scores(m, keep), "catalogue", k)
+        ablation.append({"dropped": group, "ndcg@10": e["ndcg"].mean(), "recall@10": e["recall"].mean()})
+    ablation = pd.DataFrame(ablation)
+    ablation["Δndcg"] = ablation["ndcg@10"] - ablation["ndcg@10"].iloc[0]
+    print("Ablation (trained on T1, evaluated on B, catalogue slice):")
+    print(ablation.round(4).to_string(index=False))
+
+    jitter = np.random.default_rng(seed).random(ctx.seen.shape) * 1e-6
+    scores = {
+        "random": popularity.random_scores(ctx, seed),
+        "popularity": pop,
+        "hand_v2_consultation": hand_score.score_v2(ctx, hs["m"], hs["guard_gap"], hs["guard_min_n"], seed),
+        "itemknn": knn_sum + jitter,
+        "ranker": b_scores(best_model, ranker.ALL_FEATURES),
+    }
+    results = compare(ctx, scores)
+    print(to_table(results).to_string(index=False))
+    head = {n: m["ndcg"]["mean"] for n, m in results["catalogue"]["models"].items() if n != "random"}
+    returning = max(head, key=head.get)
+    print(f"Returning-client model (best B catalogue NDCG@10): {returning}")
+
+    final = ranker.train(data["B"], best_p, ranker.ALL_FEATURES, fixed_rounds=best["rounds"])
+    (path("results") / "models").mkdir(parents=True, exist_ok=True)
+    final.save_model(str(path("results") / "models" / "ranker.txt"))
+    importance = pd.Series(final.feature_importance("gain"), index=ranker.ALL_FEATURES)
+    out = {
+        "protocol": "ranker trained on T1 labels, early-stopped on T2, compared on all B clients",
+        "candidate_coverage_B": {
+            sl: float((ctx.slice_target(sl) & cand).sum() / ctx.slice_target(sl).sum()) for sl in ("catalogue", "launch")
+        },
+        "ranker_grid": [{k2: v for k2, v in g.items() if k2 != "_model"} for g in grid],
+        "ranker_params": {"num_leaves": best["num_leaves"], "min_child_samples": best["min_child_samples"],
+                          "rounds": best["rounds"]},
+        "ablation": ablation.to_dict("records"),
+        "feature_gain_share": (importance / importance.sum()).round(4).to_dict(),
+        "results": results,
+        "returning_model": returning,
+    }
+    (path("results") / "val_models.json").write_text(json.dumps(out, indent=2, default=float))
+    print("Wrote results/val_models.json and results/models/ranker.txt")
+
+
+def stage_study() -> None:
+    """Extended model study on rolling validation folds; writes results/model_study.json."""
+    from sillage import study
+    from sillage.config import path
+
+    reviews, catalogue, prices = _load_inputs()
+    out = study.run(reviews, catalogue, prices, log=lambda m: print(m, flush=True))
+    (path("results") / "model_study.json").write_text(json.dumps(out, indent=2, default=float))
+    for key, sel in out["selection"].items():
+        print(f"Selection [{key}] (baseline {sel['baseline']}): chosen = {sel['chosen']}")
+        print(pd_table(sel["table"]))
+    print("Wrote results/model_study.json")
+
+
+def pd_table(rows):
+    import pandas as pd
+
+    return pd.DataFrame(rows).round(4).to_string(index=False)
+
+
+def stage_test(rerun_reason: str | None = None) -> None:
+    """Touch the test period C. A lock file refuses reruns unless a reason is given; every run is logged.
+
+    Evaluates every model from the study (tuned on validation folds) and records the
+    pre-registered selection made on those folds next to the test outcome.
+    """
+    import datetime as dt
+    import shutil
+
+    from sillage import study
+    from sillage.config import path
+
+    lock, log = path("results") / "TEST_LOCK", path("results") / "test_runs.log"
+    if lock.exists() and not rerun_reason:
+        raise SystemExit(f"Test period already evaluated ({lock.read_text().strip()}). "
+                         "Rerun only with --rerun-reason \"...\"; the reason is logged.")
+    res_file = path("results") / "results.json"
+    first = path("results") / "results_first_run.json"
+    if res_file.exists() and not first.exists():
+        shutil.copy(res_file, first)
+
+    sel = json.loads((path("results") / "model_study.json").read_text())
+    reviews, catalogue, prices = _load_inputs()
+    out = study.test_run(reviews, catalogue, prices, sel["tuned"], log=lambda m: print(m, flush=True))
+    out["selection_on_validation"] = {k: v["chosen"] for k, v in sel["selection"].items()}
+    out["test_period"] = "2022-12-01 to 2023-03-21"
+    out["runs"] = (log.read_text().splitlines() if log.exists() else [])
+    for sl in ("catalogue", "launch"):
+        base = "popularity" if sl == "catalogue" else "random"
+        rows = [{"model": n, "ndcg": m["ndcg"]["mean"], "diff": m["ndcg"]["diff_vs_baseline"],
+                 "diff_ci": m["ndcg"]["diff_ci"], "recall": m["recall"]["mean"]}
+                for n, m in out["results"][sl]["models"].items()]
+        print(f"Test, {sl} slice (vs {base}):")
+        print(pd_table(sorted(rows, key=lambda r: -r["ndcg"])))
+    res_file.write_text(json.dumps(out, indent=2, default=float))
+    stamp = f"evaluated {dt.datetime.now().isoformat(timespec='seconds')}"
+    lock.write_text(stamp)
+    with open(log, "a", encoding="utf-8") as f:
+        f.write(f"{stamp} | reason: {rerun_reason or 'first run'}\n")
+    print("Wrote results/results.json (first run kept in results_first_run.json); test period locked.")
+
+
+def _rows(res_slice: dict, labels) -> list[dict]:
+    out = []
+    for n, m in res_slice["models"].items():
+        out.append({
+            "model": n, "label": labels(n),
+            "ndcg": m["ndcg"]["mean"], "ci": m["ndcg"]["ci"],
+            "diff": m["ndcg"]["diff_vs_baseline"], "diff_ci": m["ndcg"]["diff_ci"],
+            "recall": m["recall"]["mean"], "recall_ci": m["recall"]["ci"],
+            "coverage": m["coverage"], "bestseller_share": m["bestseller_share"],
+        })
+    return sorted(out, key=lambda r: -r["ndcg"])
+
+
+def stage_export() -> None:
+    """Write app_data/ (checked by export.check_export) for the deployed app."""
+    from sillage import app_data
+    from sillage.config import path
+
+    reviews, catalogue, prices = _load_inputs()
+    clients = app_data.load_clients()
+    prod, stats = app_data.base_exports(reviews, catalogue)
+    info = app_data.build_returning(reviews, catalogue, prices, clients)
+    app_data.write_meta({"returning_clients": info})
+
+    res = json.loads((path("results") / "results.json").read_text())
+    study = json.loads((path("results") / "model_study.json").read_text())
+    first = json.loads((path("results") / "results_first_run.json").read_text())
+    val = json.loads((path("results") / "val_models.json").read_text())
+    label = app_data.model_label
+    folds = {}
+    for sl in ("catalogue", "launch"):
+        rows = {}
+        for fname, f in study["per_fold"].items():
+            for n, m in f[sl]["models"].items():
+                rows.setdefault(n, {"model": n, "label": label(n)})[fname] = m["ndcg"]["mean"]
+        folds[sl] = list(rows.values())
+    summary = {
+        "test_period": res["test_period"],
+        "runs": res["runs"],
+        "selection": res["selection_on_validation"],
+        "selection_tables": {k: v["table"] for k, v in study["selection"].items()},
+        "rule": study["rule"],
+        "test": {sl: _rows(res["results"][sl], label) for sl in ("catalogue", "launch")},
+        "sensitivity": {sl: _rows(res["sensitivity_sampled_kept"][sl], label) for sl in ("catalogue", "launch")},
+        "folds": folds,
+        "fold_names": list(study["per_fold"]),
+        "first_run": {sl: _rows(first["results"][sl], label) for sl in ("catalogue", "launch")},
+        "error_slices": res["error_slices"],
+        "candidate_coverage": res["candidate_coverage"],
+        "ablation_first_ranker": val["ablation"],
+        "tuned": study["tuned"],
+    }
+    (path("app_data") / "results_summary.json").write_text(json.dumps(summary, indent=2, default=float))
+    for f in sorted(path("app_data").iterdir()):
+        print(f"{f.name}: {f.stat().st_size / 1024:.0f} KB")
+
+
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(prog="sillage.build")
     parser.add_argument("--stage", choices=STAGES + ["all"], default="all")
+    parser.add_argument("--rerun-reason", default=None, help="required to evaluate the test period again")
     args = parser.parse_args(argv)
     _seed()
     for name in STAGES if args.stage == "all" else [args.stage]:
         print(f"== stage: {name}")
-        globals()[f"stage_{name}"]()
+        if name == "test":
+            stage_test(args.rerun_reason)
+        else:
+            globals()[f"stage_{name}"]()
 
 
 if __name__ == "__main__":

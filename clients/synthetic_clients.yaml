@@ -1,0 +1,88 @@
+# SYNTHETIC client profiles for the demo. No real person is represented.
+# Returning clients have an invented history made of real catalogue products
+# (product_id from the Sephora dataset). Dates and ratings are invented.
+
+clients:
+  - id: claire
+    name: Claire D.
+    type: new
+    language: en
+    consent: true
+    skin_type: dry
+    concerns: [Dryness, Loss of firmness]
+    budget_usd: 150
+    avoid: [fragrance]
+    usual_spend_usd: 50
+
+  - id: ines
+    name: Inès M.
+    type: new
+    language: fr
+    consent: true
+    skin_type: oily
+    concerns: [Pores, Acne/Blemishes]
+    budget_usd: 90
+    avoid: []
+    usual_spend_usd: 30
+
+  - id: sophie
+    name: Sophie L.
+    type: returning
+    language: fr
+    consent: true
+    skin_type: combination
+    concerns: [Dullness/Uneven Texture]
+    budget_usd: 200
+    avoid: []
+    usual_spend_usd: null          # derived from her history
+    history:
+      - {product_id: P7880, date: "2022-03-14", rating: 5}
+      - {product_id: P427417, date: "2022-06-02", rating: 4}
+      - {product_id: P394639, date: "2022-09-21", rating: 5}
+      - {product_id: P411387, date: "2023-01-10", rating: 4}
+
+  - id: emma
+    name: Emma R.
+    type: returning
+    language: en
+    consent: true
+    skin_type: normal
+    concerns: [Anti-Aging, Dark spots]
+    budget_usd: 250
+    avoid: [alcohol denat]
+    usual_spend_usd: null
+    history:
+      - {product_id: P309308, date: "2021-11-03", rating: 5}
+      - {product_id: P248407, date: "2022-01-19", rating: 4}
+      - {product_id: P427421, date: "2022-03-30", rating: 5}
+      - {product_id: P392246, date: "2022-05-12", rating: 4}
+      - {product_id: P218700, date: "2022-07-08", rating: 5}
+      - {product_id: P126301, date: "2022-09-15", rating: 5}
+      - {product_id: P460779, date: "2022-11-22", rating: 4}
+      - {product_id: P418218, date: "2023-02-05", rating: 5}
+
+  - id: margaux
+    name: Margaux T.
+    type: returning
+    language: fr
+    consent: false                 # no marketing consent: no message, no AI call
+    skin_type: dry
+    concerns: [Redness]
+    budget_usd: 120
+    avoid: []
+    usual_spend_usd: null
+    history:
+      - {product_id: P248404, date: "2022-04-11", rating: 5}
+      - {product_id: P456412, date: "2022-08-27", rating: 4}
+      - {product_id: P427419, date: "2023-02-14", rating: 5}
+
+  - id: hannah
+    name: Hannah K.
+    type: new
+    language: en
+    consent: true
+    skin_type: dry
+    concerns: [Redness]
+    budget_usd: 15                 # below the cheapest possible routine: shows the "nothing passes" state
+    avoid: [fragrance]
+    usual_spend_usd: 15

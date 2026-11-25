@@ -44,6 +44,40 @@ hand_score:
 itemknn:
   shrink: 10
 
+ranker:
+  candidates_per_model: 100
+  # Cross-period validation (a within-period user hold-out leaked period-specific item popularity):
+  # train labels in T1, early stopping on T2, select and compare on B. Final model: B labels -> test C.
+  t1: ["2022-01-01", "2022-05-01"]
+  t2: ["2022-05-01", "2022-07-01"]
+  grid:
+    num_leaves: [15, 63]
+    min_child_samples: [50, 200]
+
 llm:
   session_cap: 5
   daily_cap: 100
+
+# Extended model study: rolling validation folds, all before the test period C.
+# Each fold: ranker trained on [train_start, eval_start), evaluated on [eval_start, eval_end).
+study:
+  folds:
+    - [F1, "2021-07-01", "2021-12-01", "2021-02-01"]
+    - [F2, "2022-02-01", "2022-07-01", "2021-09-01"]
+    - [F3_B, "2022-07-01", "2022-12-01", "2022-02-01"]
+  candidates_per_model: 100
+  grids:
+    itemknn: {shrink: [0, 10, 50, 200]}
+    rp3beta: {alpha: [0.25, 0.5, 1.0], beta: [0.0, 0.15, 0.3, 0.5]}
+    ease: {lam: [300, 1000, 3000, 10000, 30000]}
+    ials: {factors: [64, 128], reg: [0.1, 1.0, 10.0], alpha: [5, 20]}
+    bpr: {factors: [64], lr: [0.001, 0.003, 0.01], weight_decay: [0.0001, 0.001]}
+  ranker:
+    num_leaves: 31
+    min_child_samples: 100
+    rounds: [100, 300]
+    variants: [original, client_centric, client_centric_binary]
+  # Written before the second test run. A model replaces popularity only if its
+  # catalogue NDCG@10 beats popularity with a 95% CI above zero in EVERY fold;
+  # among those, the highest mean wins. Launch slot: same rule against random.
+  selection_rule: "beats baseline (CI > 0) in every fold, then highest mean"

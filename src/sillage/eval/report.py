@@ -13,7 +13,7 @@ from sillage.models.popularity import popularity_vector
 BASELINE = "popularity"
 
 
-def compare(ctx, scores: dict[str, np.ndarray], slices=SLICES) -> dict:
+def compare(ctx, scores: dict[str, np.ndarray], slices=SLICES, baseline: str = BASELINE) -> dict:
     cfg = load_config()
     k, n_boot, seed = cfg["eval"]["k"], cfg["eval"]["bootstrap_samples"], cfg["seed"]
     pop = popularity_vector(ctx.product_feats)
@@ -24,7 +24,7 @@ def compare(ctx, scores: dict[str, np.ndarray], slices=SLICES) -> dict:
         any_eval = next(iter(evals.values()))
         res = {"n_users": int(len(any_eval["rows"])), "n_candidates": int(cand.sum()), "models": {}}
         for metric in ("recall", "ndcg"):
-            ci = bootstrap_ci({n: e[metric] for n, e in evals.items()}, BASELINE, n_boot, seed)
+            ci = bootstrap_ci({n: e[metric] for n, e in evals.items()}, baseline, n_boot, seed)
             for name, v in ci.items():
                 res["models"].setdefault(name, {})[metric] = v
         for name, e in evals.items():

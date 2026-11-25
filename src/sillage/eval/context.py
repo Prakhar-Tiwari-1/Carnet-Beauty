@@ -85,3 +85,13 @@ def build_context(
         target=mask(tg),
         is_launch=pf["is_launch"].to_numpy(),
     )
+
+
+def subset(ctx: EvalContext, rows: np.ndarray) -> EvalContext:
+    """The same context restricted to some user rows (e.g. a held-out user sample)."""
+    return EvalContext(
+        period=ctx.period, reviews=ctx.reviews, catalogue=ctx.catalogue,
+        users=ctx.users[rows], products=ctx.products, product_feats=ctx.product_feats,
+        client_feats=ctx.client_feats.iloc[rows].reset_index(drop=True), skin_table=ctx.skin_table,
+        seen=ctx.seen[rows], target=ctx.target[rows], is_launch=ctx.is_launch, extra=ctx.extra,
+    )
