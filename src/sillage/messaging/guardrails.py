@@ -75,13 +75,24 @@ def check_numbers(text: str, facts: Facts) -> list[str]:
     return problems
 
 
+def catalogue_names(products) -> list[str]:
+    """Names to scan drafts for. A one-word name ("Cleanser") is also a generic word, so it only
+    counts as a product mention together with its brand ("Dr. Barbara Sturm Cleanser")."""
+    return [n if len(n.split()) > 1 else f"{b} {n}" for b, n in zip(products["brand_name"], products["product_name"])]
+
+
 def check_product_names(text: str, facts: Facts, catalogue_names: list[str]) -> list[str]:
     supplied = {p["product_name"].lower() for p in facts.products}
+    supplied |= {f'{p["brand_name"]} {p["product_name"]}'.lower() for p in facts.products}
     lowered = text.lower()
+
+    def mentioned(name: str) -> bool:
+        return re.search(r"(?<!\w)" + re.escape(name.lower()) + r"(?!\w)", lowered) is not None
+
     return [
         f"Mentions '{name}', which is not one of the chosen products."
         for name in catalogue_names
-        if name.lower() not in supplied and len(name) >= 8 and name.lower() in lowered
+        if name.lower() not in supplied and len(name) >= 8 and mentioned(name)
         and not any(name.lower() in s for s in supplied)
     ]
 

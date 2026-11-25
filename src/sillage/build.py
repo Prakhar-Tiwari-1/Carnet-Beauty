@@ -348,6 +348,11 @@ def _write_results_md(s: dict) -> None:
         f"- Established products for returning clients: **{s['selection']['returning_established']}**",
         f"- Launch slot for returning clients: **{s['selection']['launch_slot']}**",
         "",
+        "## Deployed in the app (decided after the test run)",
+        f"- Established products for returning clients: **{s['deployed']['returning_established']}**",
+        f"- Launch slot for returning clients: **{s['deployed']['launch_slot']}**",
+        f"- Reason: {s['deployment_reason']}",
+        "",
         "## Test period: established products (baseline: popularity)",
         table(s["test"]["catalogue"], "popularity"),
         "",
@@ -403,6 +408,8 @@ def stage_export() -> None:
     first = json.loads((path("results") / "results_first_run.json").read_text())
     val = json.loads((path("results") / "val_models.json").read_text())
     label = app_data.model_label
+    from sillage.config import load_config
+    cfg_dep = load_config().get("deployment", {})
     folds = {}
     for sl in ("catalogue", "launch"):
         rows = {}
@@ -414,6 +421,8 @@ def stage_export() -> None:
         "test_period": res["test_period"],
         "runs": res["runs"],
         "selection": res["selection_on_validation"],
+        "deployed": {k: (cfg_dep.get(k) or v) for k, v in res["selection_on_validation"].items()},
+        "deployment_reason": cfg_dep.get("reason", ""),
         "selection_tables": {k: v["table"] for k, v in study["selection"].items()},
         "rule": study["rule"],
         "test": {sl: _rows(res["results"][sl], label) for sl in ("catalogue", "launch")},
@@ -433,7 +442,8 @@ def stage_export() -> None:
 
 
 def stage_review_sheet() -> None:
-    """30 follow-up drafts for manual labelling: consenting clients x EN/FR x 3 budget variants."""
+    """Follow-up drafts for manual labelling: consenting clients x EN/FR x up to 3 distinct routines,
+    each as template and (if a key is set) AI draft on identical facts."""
     import dataclasses
 
     import pandas as pd
@@ -442,9 +452,10 @@ def stage_review_sheet() -> None:
     from sillage.config import ROOT
     from sillage.messaging import llm
     from sillage.messaging.compose import compose
+    from sillage.messaging.guardrails import catalogue_names
 
     d = app_core.load(ROOT)
-    names = d.products["product_name"].tolist()
+    names = catalogue_names(d.products)
     use_llm = llm.is_configured()
     rows = []
     for client in [c for c in d.clients if c["consent"]]:
@@ -464,15 +475,16 @@ def stage_review_sheet() -> None:
         for lang in ["en", "fr"]:
             for mult, view in variants:
                 facts = app_core.message_facts(d, client, view, lang)
-                draft = compose(facts, client["consent"], names, use_llm=use_llm)
-                rows.append({
-                    "id": len(rows) + 1, "client": client["name"], "language": lang, "budget_multiplier": mult,
-                    "source": draft.source, "draft": draft.text,
-                    "facts": json.dumps(dataclasses.asdict(facts), ensure_ascii=False),
-                    "auto_check": "pass" if draft.check.ok else "blocked",
-                    "auto_problems": " | ".join(draft.check.problems + draft.notices),
-                    "factual_ok": "", "tone_ok": "", "compliant": "", "would_send": "", "notes": "",
-                })
+                for want_llm in ([False, True] if use_llm else [False]):
+                    draft = compose(facts, client["consent"], names, use_llm=want_llm)
+                    rows.append({
+                        "id": len(rows) + 1, "client": client["name"], "language": lang, "budget_multiplier": mult,
+                        "source": draft.source, "draft": draft.text,
+                        "facts": json.dumps(dataclasses.asdict(facts), ensure_ascii=False),
+                        "auto_check": "pass" if draft.check.ok else "blocked",
+                        "auto_problems": " | ".join(draft.check.problems + draft.notices),
+                        "factual_ok": "", "tone_ok": "", "compliant": "", "would_send": "", "notes": "",
+                    })
     df = pd.DataFrame(rows)
     df.to_csv(ROOT / "docs" / "review_sheet.csv", index=False)
     print(f"Wrote docs/review_sheet.csv: {len(df)} drafts, sources {df['source'].value_counts().to_dict()}, "

@@ -97,3 +97,18 @@ def test_environmental_wording_blocked(facts, text):
 ])
 def test_step_names_and_supplied_tags_allowed(facts, text):
     assert check_draft(text, facts, CATALOGUE).ok, check_draft(text, facts, CATALOGUE).problems
+
+
+def test_generic_step_word_is_not_an_invented_product():
+    """Regression: a catalogue product named just 'Cleanser' blocked every draft saying 'cleanser'."""
+    import pandas as pd
+
+    from sillage.messaging.guardrails import Facts, catalogue_names, check_product_names
+
+    cat = pd.DataFrame({"brand_name": ["Dr. Barbara Sturm", "CeraVe"],
+                        "product_name": ["Cleanser", "Hydrating Facial Cleanser"]})
+    facts = Facts(client_name="S", language="en", skin_type="dry", total=17.0,
+                  products=[{"brand_name": "CeraVe", "product_name": "Hydrating Facial Cleanser", "price_usd": 17.0}])
+    names = catalogue_names(cat)
+    assert check_product_names("Start with your cleanser: CeraVe Hydrating Facial Cleanser.", facts, names) == []
+    assert check_product_names("Or try the Dr. Barbara Sturm Cleanser.", facts, names)

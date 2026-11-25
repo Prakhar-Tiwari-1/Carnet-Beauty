@@ -216,6 +216,9 @@ def build_returning(reviews, catalogue, prices, clients, log=print) -> dict:
     seed = cfg["seed"]
     study = json.loads((path("results") / "model_study.json").read_text())
     tuned, chosen = study["tuned"], {k: v["chosen"] for k, v in study["selection"].items()}
+    for k, v in cfg.get("deployment", {}).items():  # post-test override, documented in config and results
+        if k in chosen and v:
+            chosen[k] = v
     cutoff = pd.Timestamp(cfg["periods"]["c_end"])
     products_raw = read_products()
     skincare = products_raw[products_raw["primary_category"] == "Skincare"]

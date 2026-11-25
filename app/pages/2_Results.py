@@ -37,9 +37,10 @@ def chart(rows, baseline_name: str, title: str):
 
 cat, lau = S["test"]["catalogue"], S["test"]["launch"]
 sel_r, sel_l = S["selection"]["returning_established"], S["selection"]["launch_slot"]
-pop = lookup(cat, "popularity")
-best_r, rnd_l = lookup(cat, sel_r), lookup(lau, "random")
-best_l = lookup(lau, sel_l)
+dep = S.get("deployed", S["selection"])
+pop, rnd_l = lookup(cat, "popularity"), lookup(lau, "random")
+picked_r, best_l = lookup(cat, sel_r), lookup(lau, dep["launch_slot"])
+top_r = max((r for r in cat if not r["model"].endswith("@100")), key=lambda r: r["ndcg"])
 
 st.title("Results")
 st.markdown(f"Test period **{S['test_period']}**, never used to choose or tune anything except where stated below. "
@@ -48,16 +49,22 @@ st.markdown(f"Test period **{S['test_period']}**, never used to choose or tune a
 
 st.subheader("In one minute")
 lines = []
-if best_r and sel_r != "popularity":
-    lines.append(f"**Established products:** *{best_r['label']}* ranks what a returning client will like next "
-                 f"**{best_r['ndcg'] / pop['ndcg']:.1f}× better than popularity** (NDCG@10 {best_r['ndcg']:.3f} vs "
-                 f"{pop['ndcg']:.3f}; difference {best_r['diff']:+.3f}, 95% CI {best_r['diff_ci'][0]:+.3f} to "
-                 f"{best_r['diff_ci'][1]:+.3f}).")
-else:
-    lines.append("**Established products:** no learned model reliably beat popularity, so the app uses popularity.")
-if best_l and sel_l != "random":
-    lines.append(f"**New launches:** *{best_l['label']}* finds the launches a client will like "
-                 f"**{best_l['recall'] / rnd_l['recall']:.1f}× more often than random** (recall@10 "
+if dep["returning_established"] == "popularity" and picked_r:
+    lines.append(f"**Established products:** the model picked on validation (*{picked_r['label']}*) did **not** beat "
+                 f"popularity on the test period (NDCG@10 {picked_r['ndcg']:.3f} vs {pop['ndcg']:.3f}; difference "
+                 f"{picked_r['diff']:+.3f}, 95% CI {picked_r['diff_ci'][0]:+.3f} to {picked_r['diff_ci'][1]:+.3f}). "
+                 "**The app therefore uses popularity** for returning clients' routines.")
+    if top_r["model"] not in ("popularity", sel_r):
+        lines.append(f"**Open finding:** *{top_r['label']}* was best on the test period (NDCG@10 {top_r['ndcg']:.3f}, "
+                     f"{top_r['ndcg'] / pop['ndcg']:.1f}× popularity) but not on validation. Choosing it now would "
+                     "mean the test period picked the model, so it is not deployed; it is the first thing a pilot should test.")
+elif picked_r:
+    lines.append(f"**Established products:** *{picked_r['label']}* NDCG@10 {picked_r['ndcg']:.3f} vs popularity "
+                 f"{pop['ndcg']:.3f} (difference {picked_r['diff']:+.3f}, 95% CI {picked_r['diff_ci'][0]:+.3f} to "
+                 f"{picked_r['diff_ci'][1]:+.3f}).")
+if best_l and dep["launch_slot"] != "random":
+    lines.append(f"**New launches:** *{best_l['label']}* (picked on validation) finds the launches a client will like "
+                 f"**{best_l['recall'] / rnd_l['recall']:.1f}× more often than random** on the test period (recall@10 "
                  f"{best_l['recall']:.3f} vs {rnd_l['recall']:.3f}). Popularity and purchase-history models "
                  "know nothing about a product with no reviews.")
 lines.append("**New clients** (no history) get the consultation score: popularity, minus products their skin type "
@@ -93,13 +100,16 @@ if r1 and p1:
         f"A LightGBM ranker chosen on a single validation period lost to popularity on the test period "
         f"(NDCG@10 {r1['ndcg']:.3f} vs {p1['ndcg']:.3f}). Diagnosis: about half of its learning came from price "
         "and brand-level popularity, so it learned *last season's winners* rather than the client. That led to "
-        "the rolling three-period protocol, the client-centric ranker variant, and a second, logged test run:")
+        "the rolling three-period protocol, the client-centric ranker variant, and a second, logged test run. "
+        "In that second run the rankers again fell to popularity level on the test period, although they led on all "
+        "three validation periods, while simpler models (EASE, RP3beta) rose. The cause is not established. "
+        "A leakage check (refitting with every test-period row deleted gives identical scores) rules out a data bug.")
 for run in S["runs"]:
     st.caption("• " + run)
 
 st.subheader("Where it works and where it does not")
 es = pd.DataFrame(S["error_slices"])
-show = [c for c in ["popularity", sel_r] if c in es.columns]
+show = [c for c in dict.fromkeys(["popularity", top_r["model"]]) if c in es.columns]
 if show:
     es = es[["dimension", "group", "clients", *show]]
     st.caption("Recall@10 by client and product group (groups with fewer than 20 clients hidden).")

@@ -82,3 +82,12 @@ study:
   # catalogue NDCG@10 beats popularity with a 95% CI above zero in EVERY fold;
   # among those, the highest mean wins. Launch slot: same rule against random.
   selection_rule: "beats baseline (CI > 0) in every fold, then highest mean"
+
+# Deployment override, decided AFTER the logged second test run (the pre-registered pick stays on record).
+# The validation-selected ranker did not beat popularity on established products in the test period,
+# so the app falls back to the baseline there. EASE was best on test but is not deployed: choosing it
+# on the test period would make its test figure a biased estimate. Launch slot keeps the selection.
+deployment:
+  returning_established: popularity
+  launch_slot: null            # null = keep the validation selection
+  reason: "Validation pick (client-centric ranker) did not beat popularity on the test period (CI includes 0); fall back to the baseline. EASE, best on test, is reported but not deployed because it would be chosen on the test period."

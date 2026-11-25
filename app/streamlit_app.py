@@ -14,7 +14,7 @@ from common import data, footer, money  # noqa: E402
 from sillage import app_core  # noqa: E402
 from sillage.messaging import llm  # noqa: E402
 from sillage.messaging.compose import compose  # noqa: E402
-from sillage.messaging.guardrails import check_draft  # noqa: E402
+from sillage.messaging.guardrails import catalogue_names, check_draft  # noqa: E402
 from sillage.routine import INGREDIENT_DISCLAIMER, STEPS  # noqa: E402
 
 D = data()
@@ -98,7 +98,7 @@ else:
     use_ai = st.toggle("Draft with AI", value=False, disabled=not llm.is_configured(),
                        help=None if llm.is_configured() else "No AI key configured: templates only.")
     facts = app_core.message_facts(D, client, view, lang)
-    names = D.products["product_name"].tolist()
+    names = catalogue_names(D.products)
     st.session_state.setdefault("ai_calls", 0)
     draft = compose(facts, client["consent"], names, use_llm=use_ai, session_calls=st.session_state["ai_calls"])
     if draft.source == "llm":

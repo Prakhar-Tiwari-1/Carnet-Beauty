@@ -4,7 +4,7 @@ import pandas as pd
 import pytest
 
 from sillage import app_core
-from sillage.messaging.guardrails import check_draft
+from sillage.messaging.guardrails import catalogue_names, check_draft
 from sillage.messaging.templates import render
 
 
@@ -66,7 +66,7 @@ def test_message_facts_pass_guardrails(lang):
     view = app_core.build_view(d, client, app_core.consultation(client))
     facts = app_core.message_facts(d, client, view, lang)
     text = render(facts)
-    assert check_draft(text, facts, d.products["product_name"].tolist()).ok
+    assert check_draft(text, facts, catalogue_names(d.products)).ok
     # The displayed figures may be quoted; an invented one may not.
     assert check_draft(text + " Liked by 90% of 50 reviewers.", facts, []).ok
     assert not check_draft(text + " Liked by 91% of reviewers.", facts, []).ok
