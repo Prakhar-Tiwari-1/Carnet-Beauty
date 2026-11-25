@@ -55,6 +55,7 @@ ranker:
     min_child_samples: [50, 200]
 
 llm:
+  model: gpt-4.1-mini        # default when LLM_MODEL is not set; supports temperature 0.2
   session_cap: 5
   daily_cap: 100
 

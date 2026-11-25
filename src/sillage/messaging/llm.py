@@ -12,30 +12,62 @@ from dataclasses import asdict
 
 from sillage.messaging.guardrails import Facts
 
-PROMPT_VERSION = "v1"
+PROMPT_VERSION = "v2"
 
 SYSTEM = """You write short follow-up messages from a beauty advisor to a client after an in-store consultation.
 Rules:
 - Use ONLY the facts in the JSON. Do not add any product, price, number, ingredient, benefit or claim.
 - Write prices exactly as given in the JSON field "price_text" and the total as "total_text".
-- Mention every product once, with its brand and exact name.
+- Mention every product once, with its brand and exact name, its routine step and its price. Nothing else about it:
+  no benefit, texture, effect or result ("gentle", "ideal for", "for balanced skin", "hydrating" unless it is in the name).
+- You may mention the client's skin type and the "tags" exactly as given.
 - No medical words (cure, heal, treat a condition, eczema, rosacea...).
 - No environmental claims (clean, green, eco-friendly, sustainable...).
-- Warm, discreet, luxury tone. At most 120 words. Sign with the advisor name.
+- Warm, discreet, luxury tone. At most 120 words. Sign with advisor_name exactly as given.
 - Write in {language_name}."""
 
 
+KEYS = ("LLM_API_KEY", "LLM_MODEL", "LLM_BASE_URL")
+KEY_ALIASES = ("OPENAI_API_KEY", "OPEN_AI_API_KEY")  # accepted names for the API key
+
+
+def _dotenv() -> dict:
+    """Read KEY=VALUE lines from a local .env (gitignored); no extra dependency."""
+    from sillage.config import ROOT
+
+    out = {}
+    f = ROOT / ".env"
+    if f.exists():
+        for line in f.read_text().splitlines():
+            if "=" in line and not line.lstrip().startswith("#"):
+                k, v = line.split("=", 1)
+                out[k.strip()] = v.strip().strip("'\"")
+    return out
+
+
 def settings() -> dict:
-    get = os.environ.get
-    secrets = {}
-    try:  # Streamlit secrets take precedence when a secrets file exists (never shows a warning)
+    """Priority: Streamlit secrets, then environment variables, then .env; model defaults to config."""
+    from sillage.config import load_config
+
+    sources = []
+    try:  # Streamlit secrets, only when a secrets file exists (never shows a warning)
         from streamlit.runtime.secrets import secrets_singleton
 
         if secrets_singleton.load_if_toml_exists():
-            secrets = dict(secrets_singleton)
+            sources.append(dict(secrets_singleton))
     except Exception:
         pass
-    return {k: secrets.get(k, get(k)) for k in ("LLM_API_KEY", "LLM_MODEL", "LLM_BASE_URL")}
+    sources += [dict(os.environ), _dotenv()]
+
+    def get(k, aliases=()):
+        for src in sources:
+            for name in (k, *aliases):
+                if src.get(name):
+                    return str(src[name])
+        return None
+
+    return {"LLM_API_KEY": get("LLM_API_KEY", KEY_ALIASES), "LLM_MODEL": get("LLM_MODEL") or load_config()["llm"].get("model"),
+            "LLM_BASE_URL": get("LLM_BASE_URL")}
 
 
 def is_configured() -> bool:
