@@ -40,7 +40,8 @@ class ItemKNN:
         denom = np.sqrt(np.outer(n, n))
         cos = np.divide(co, denom, out=np.zeros_like(co), where=denom > 0)
         self.co = co
-        self.sim = cos * co / (co + self.shrink)
+        # Guarded division: with shrink = 0, pairs never co-liked would be 0/0.
+        self.sim = cos * np.divide(co, co + self.shrink, out=np.zeros_like(co), where=(co + self.shrink) > 0)
         self.item_idx = item_idx
         self._liked = liked.groupby("author_id")["product_id"].agg(list)
         return self

@@ -111,8 +111,9 @@ def filter_products(products: pd.DataFrame, c: Consultation, guarded: set[str], 
                 match = p["concerns"].map(lambda cs, a=applied[step]: bool(set(cs) & set(a))).to_numpy()
                 ok &= ~in_step | match
             for concern, n in skipped[step].items():
-                notes.append(f"{step.capitalize()} not filtered on {concern}: only {n} "
-                             f"{step}s carry that Sephora tag (minimum {min_products}).")
+                carry = f"{n} {step} carries" if n == 1 else f"{n} {step}s carry"
+                notes.append(f"{step.capitalize()} not filtered on {concern}: only {carry} "
+                             f"that Sephora tag (minimum {min_products}).")
         stages.append(("matches a stated concern", ok))
 
     keep = np.ones(len(p), bool)

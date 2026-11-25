@@ -5,6 +5,10 @@ import streamlit as st
 
 st.set_page_config(page_title="Sillage", page_icon="✦", layout="centered")
 
+import sys  # noqa: E402
+from pathlib import Path  # noqa: E402
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import data, footer, money  # noqa: E402
 
 from sillage import app_core  # noqa: E402

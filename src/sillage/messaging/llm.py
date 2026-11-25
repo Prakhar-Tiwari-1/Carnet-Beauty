@@ -27,12 +27,14 @@ Rules:
 
 def settings() -> dict:
     get = os.environ.get
-    try:  # Streamlit secrets take precedence when running in the app
-        import streamlit as st
+    secrets = {}
+    try:  # Streamlit secrets take precedence when a secrets file exists (never shows a warning)
+        from streamlit.runtime.secrets import secrets_singleton
 
-        secrets = dict(st.secrets) if hasattr(st, "secrets") else {}
+        if secrets_singleton.load_if_toml_exists():
+            secrets = dict(secrets_singleton)
     except Exception:
-        secrets = {}
+        pass
     return {k: secrets.get(k, get(k)) for k in ("LLM_API_KEY", "LLM_MODEL", "LLM_BASE_URL")}
 
 

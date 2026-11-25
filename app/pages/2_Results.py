@@ -7,6 +7,10 @@ import streamlit as st
 
 st.set_page_config(page_title="Sillage · Results", page_icon="✦", layout="centered")
 
+import sys  # noqa: E402
+from pathlib import Path  # noqa: E402
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from common import data, footer  # noqa: E402
 
 S = data().results
