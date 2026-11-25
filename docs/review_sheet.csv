@@ -1,0 +1,382 @@
+id,client,language,budget_multiplier,source,draft,facts,auto_check,auto_problems,factual_ok,tone_ok,compliant,would_send,notes
+1,Claire D.,en,1.0,template,"Dear Claire,
+
+Thank you for your visit. As discussed, here is the routine we put together for your dry skin:
+
+1. Cleanser: WASO, SHIKULIME Gel-to-Oil Cleanser ($28.00)
+2. Treatment: Supergoop!, Daily Dose Bioretinol + Mineral SPF 40 with Bakuchiol ($46.00)
+3. Moisturiser: Biossance, Squalane + Omega Repair Deep Hydration Moisturizer ($60.00)
+
+Total: $134.00.
+
+I would love to hear how your skin feels after a few weeks, and I am happy to adjust the routine at any time.
+
+Warm regards,
+Your beauty advisor","{""client_name"": ""Claire"", ""language"": ""en"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Daily Dose Bioretinol + Mineral SPF 40 with Bakuchiol"", ""brand_name"": ""Supergoop!"", ""step"": ""treatment"", ""price_usd"": 46.0}, {""product_name"": ""Squalane + Omega Repair Deep Hydration Moisturizer"", ""brand_name"": ""Biossance"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 134.0, ""numbers"": [369, 94, 79, 346, 93, 44, 611, 78, 400], ""tags"": [""Good for Dryness"", ""Good for Loss of firmness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+2,Claire D.,en,1.0,llm (cached),"Dear Claire,
+
+Thank you for visiting us. For your dry skin, I recommend the WASO SHIKULIME Gel-to-Oil Cleanser as your cleanser, priced at $28.00. Follow with the Supergoop! Daily Dose Bioretinol + Mineral SPF 40 with Bakuchiol for treatment, at $46.00. Complete your routine with the Biossance Squalane + Omega Repair Deep Hydration Moisturizer, priced at $60.00. Your total comes to $134.00. This selection is tagged Good for Dryness and Good for Loss of firmness.
+
+Warm regards,  
+Your beauty advisor","{""client_name"": ""Claire"", ""language"": ""en"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Daily Dose Bioretinol + Mineral SPF 40 with Bakuchiol"", ""brand_name"": ""Supergoop!"", ""step"": ""treatment"", ""price_usd"": 46.0}, {""product_name"": ""Squalane + Omega Repair Deep Hydration Moisturizer"", ""brand_name"": ""Biossance"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 134.0, ""numbers"": [369, 94, 79, 346, 93, 44, 611, 78, 400], ""tags"": [""Good for Dryness"", ""Good for Loss of firmness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+3,Claire D.,en,1.5,template,"Dear Claire,
+
+Thank you for your visit. As discussed, here is the routine we put together for your dry skin:
+
+1. Cleanser: WASO, SHIKULIME Gel-to-Oil Cleanser ($28.00)
+2. Treatment: Drunk Elephant, C-Firma Fresh Vitamin-C Day Serum ($78.00)
+3. Moisturiser: Biossance, Squalane + Omega Repair Deep Hydration Moisturizer ($60.00)
+
+Total: $166.00.
+
+I would love to hear how your skin feels after a few weeks, and I am happy to adjust the routine at any time.
+
+Warm regards,
+Your beauty advisor","{""client_name"": ""Claire"", ""language"": ""en"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""C-Firma Fresh Vitamin-C Day Serum"", ""brand_name"": ""Drunk Elephant"", ""step"": ""treatment"", ""price_usd"": 78.0}, {""product_name"": ""Squalane + Omega Repair Deep Hydration Moisturizer"", ""brand_name"": ""Biossance"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 166.0, ""numbers"": [369, 94, 79, 459, 70, 220, 611, 78, 400], ""tags"": [""Good for Dryness"", ""Good for Loss of firmness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+4,Claire D.,en,1.5,llm (cached),"Dear Claire,
+
+Thank you for visiting us. For your dry skin, I recommend the WASO SHIKULIME Gel-to-Oil Cleanser as your cleanser at $28.00. Follow with the Drunk Elephant C-Firma Fresh Vitamin-C Day Serum for treatment, priced at $78.00. Complete your routine with the Biossance Squalane + Omega Repair Deep Hydration Moisturizer at $60.00. These products are tagged as Good for Dryness and Good for Loss of firmness. Your total comes to $166.00.
+
+Looking forward to assisting you again.
+
+Warm regards,  
+Your beauty advisor","{""client_name"": ""Claire"", ""language"": ""en"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""C-Firma Fresh Vitamin-C Day Serum"", ""brand_name"": ""Drunk Elephant"", ""step"": ""treatment"", ""price_usd"": 78.0}, {""product_name"": ""Squalane + Omega Repair Deep Hydration Moisturizer"", ""brand_name"": ""Biossance"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 166.0, ""numbers"": [369, 94, 79, 459, 70, 220, 611, 78, 400], ""tags"": [""Good for Dryness"", ""Good for Loss of firmness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+5,Claire D.,fr,1.0,template,"Bonjour Claire,
+
+Merci pour votre visite. Comme convenu, voici la routine que nous avons composée pour votre peau sèche :
+
+1. Nettoyant: WASO, SHIKULIME Gel-to-Oil Cleanser (28,00 $)
+2. Traitement: Supergoop!, Daily Dose Bioretinol + Mineral SPF 40 with Bakuchiol (46,00 $)
+3. Hydratant: Biossance, Squalane + Omega Repair Deep Hydration Moisturizer (60,00 $)
+
+Total : 134,00 $.
+
+N'hésitez pas à me dire comment votre peau se sent après quelques semaines. Je reste à votre disposition pour ajuster la routine.
+
+Bien à vous,
+Your beauty advisor","{""client_name"": ""Claire"", ""language"": ""fr"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Daily Dose Bioretinol + Mineral SPF 40 with Bakuchiol"", ""brand_name"": ""Supergoop!"", ""step"": ""treatment"", ""price_usd"": 46.0}, {""product_name"": ""Squalane + Omega Repair Deep Hydration Moisturizer"", ""brand_name"": ""Biossance"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 134.0, ""numbers"": [369, 94, 79, 346, 93, 44, 611, 78, 400], ""tags"": [""Good for Dryness"", ""Good for Loss of firmness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+6,Claire D.,fr,1.0,llm (cached),"Bonjour Claire,
+
+Pour votre peau sèche, je vous recommande le nettoyant WASO SHIKULIME Gel-to-Oil Cleanser à 28,00 $, suivi du traitement Supergoop! Daily Dose Bioretinol + Mineral SPF 40 with Bakuchiol à 46,00 $. Pour finir, la crème hydratante Biossance Squalane + Omega Repair Deep Hydration Moisturizer à 60,00 $ complétera parfaitement votre routine. Ces produits sont adaptés pour la sécheresse et la perte de fermeté. Le total de votre sélection est de 134,00 $.
+
+N'hésitez pas à me contacter pour toute question.
+
+Votre beauty advisor","{""client_name"": ""Claire"", ""language"": ""fr"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Daily Dose Bioretinol + Mineral SPF 40 with Bakuchiol"", ""brand_name"": ""Supergoop!"", ""step"": ""treatment"", ""price_usd"": 46.0}, {""product_name"": ""Squalane + Omega Repair Deep Hydration Moisturizer"", ""brand_name"": ""Biossance"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 134.0, ""numbers"": [369, 94, 79, 346, 93, 44, 611, 78, 400], ""tags"": [""Good for Dryness"", ""Good for Loss of firmness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+7,Claire D.,fr,1.5,template,"Bonjour Claire,
+
+Merci pour votre visite. Comme convenu, voici la routine que nous avons composée pour votre peau sèche :
+
+1. Nettoyant: WASO, SHIKULIME Gel-to-Oil Cleanser (28,00 $)
+2. Traitement: Drunk Elephant, C-Firma Fresh Vitamin-C Day Serum (78,00 $)
+3. Hydratant: Biossance, Squalane + Omega Repair Deep Hydration Moisturizer (60,00 $)
+
+Total : 166,00 $.
+
+N'hésitez pas à me dire comment votre peau se sent après quelques semaines. Je reste à votre disposition pour ajuster la routine.
+
+Bien à vous,
+Your beauty advisor","{""client_name"": ""Claire"", ""language"": ""fr"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""C-Firma Fresh Vitamin-C Day Serum"", ""brand_name"": ""Drunk Elephant"", ""step"": ""treatment"", ""price_usd"": 78.0}, {""product_name"": ""Squalane + Omega Repair Deep Hydration Moisturizer"", ""brand_name"": ""Biossance"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 166.0, ""numbers"": [369, 94, 79, 459, 70, 220, 611, 78, 400], ""tags"": [""Good for Dryness"", ""Good for Loss of firmness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+8,Claire D.,fr,1.5,llm (cached),"Bonjour Claire,
+
+Pour votre peau sèche, je vous recommande le nettoyant WASO SHIKULIME Gel-to-Oil Cleanser à 28,00 $, parfait pour la première étape. Ensuite, le sérum Drunk Elephant C-Firma Fresh Vitamin-C Day Serum pour le traitement, à 78,00 $. Enfin, la crème hydratante Biossance Squalane + Omega Repair Deep Hydration Moisturizer à 60,00 $ pour bien nourrir votre peau. Ces produits sont adaptés pour la sécheresse et la perte de fermeté.
+
+Le total de votre routine est de 166,00 $.
+
+À bientôt pour votre prochaine visite,  
+Your beauty advisor","{""client_name"": ""Claire"", ""language"": ""fr"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""C-Firma Fresh Vitamin-C Day Serum"", ""brand_name"": ""Drunk Elephant"", ""step"": ""treatment"", ""price_usd"": 78.0}, {""product_name"": ""Squalane + Omega Repair Deep Hydration Moisturizer"", ""brand_name"": ""Biossance"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 166.0, ""numbers"": [369, 94, 79, 459, 70, 220, 611, 78, 400], ""tags"": [""Good for Dryness"", ""Good for Loss of firmness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+9,Inès M.,en,1.0,template,"Dear Inès,
+
+Thank you for your visit. As discussed, here is the routine we put together for your oily skin:
+
+1. Cleanser: The INKEY List, Salicylic Acid Acne + Pore Cleanser ($11.99)
+2. Treatment: Peace Out, Salicylic Acid Acne Healing Dots ($19.00)
+3. Moisturiser: Shiseido, Essential Energy Hydrating Cream ($50.00)
+
+Total: $80.99.
+
+I would love to hear how your skin feels after a few weeks, and I am happy to adjust the routine at any time.
+
+Warm regards,
+Your beauty advisor","{""client_name"": ""Inès"", ""language"": ""en"", ""skin_type"": ""oily"", ""products"": [{""product_name"": ""Salicylic Acid Acne + Pore Cleanser"", ""brand_name"": ""The INKEY List"", ""step"": ""cleanser"", ""price_usd"": 11.99}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Essential Energy Hydrating Cream"", ""brand_name"": ""Shiseido"", ""step"": ""moisturiser"", ""price_usd"": 50.0}], ""total"": 80.99000000000001, ""numbers"": [199, 85, 270, 328, 79, 686, 324, 94, 34], ""tags"": [""Good for Acne/Blemishes"", ""Good for Pores""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+10,Inès M.,en,1.0,llm (cached),"Dear Inès, 
+
+Thank you for visiting us. For your oily skin, I recommend starting with The INKEY List Salicylic Acid Acne + Pore Cleanser at $11.99 as your cleanser. Follow with Peace Out Salicylic Acid Acne Healing Dots for treatment, priced at $19.00. Complete your routine with Shiseido Essential Energy Hydrating Cream as your moisturiser, available for $50.00. These products are tagged as Good for Acne/Blemishes and Good for Pores. Your total comes to $80.99. 
+
+Looking forward to assisting you again. 
+
+Warm regards,  
+Your beauty advisor","{""client_name"": ""Inès"", ""language"": ""en"", ""skin_type"": ""oily"", ""products"": [{""product_name"": ""Salicylic Acid Acne + Pore Cleanser"", ""brand_name"": ""The INKEY List"", ""step"": ""cleanser"", ""price_usd"": 11.99}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Essential Energy Hydrating Cream"", ""brand_name"": ""Shiseido"", ""step"": ""moisturiser"", ""price_usd"": 50.0}], ""total"": 80.99000000000001, ""numbers"": [199, 85, 270, 328, 79, 686, 324, 94, 34], ""tags"": [""Good for Acne/Blemishes"", ""Good for Pores""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+11,Inès M.,en,1.5,template,"Dear Inès,
+
+Thank you for your visit. As discussed, here is the routine we put together for your oily skin:
+
+1. Cleanser: Youth To The People, Superfood Antioxidant Cleanser ($39.00)
+2. Treatment: Glow Recipe, Strawberry Smooth BHA + AHA Salicylic Acid Serum ($42.00)
+3. Moisturiser: Shiseido, Essential Energy Hydrating Cream ($50.00)
+
+Total: $131.00.
+
+I would love to hear how your skin feels after a few weeks, and I am happy to adjust the routine at any time.
+
+Warm regards,
+Your beauty advisor","{""client_name"": ""Inès"", ""language"": ""en"", ""skin_type"": ""oily"", ""products"": [{""product_name"": ""Superfood Antioxidant Cleanser"", ""brand_name"": ""Youth To The People"", ""step"": ""cleanser"", ""price_usd"": 39.0}, {""product_name"": ""Strawberry Smooth BHA + AHA Salicylic Acid Serum"", ""brand_name"": ""Glow Recipe"", ""step"": ""treatment"", ""price_usd"": 42.0}, {""product_name"": ""Essential Energy Hydrating Cream"", ""brand_name"": ""Shiseido"", ""step"": ""moisturiser"", ""price_usd"": 50.0}], ""total"": 131.0, ""numbers"": [547, 76, 779, 895, 87, 154, 324, 94, 34], ""tags"": [""Good for Acne/Blemishes"", ""Good for Pores""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+12,Inès M.,en,1.5,llm (cached),"Dear Inès,
+
+Thank you for visiting us. For your oily skin, I recommend starting with the Youth To The People Superfood Antioxidant Cleanser as your cleanser, priced at $39.00. Follow with the Glow Recipe Strawberry Smooth BHA + AHA Salicylic Acid Serum for treatment, available at $42.00. Complete your routine with the Shiseido Essential Energy Hydrating Cream as your moisturiser, priced at $50.00. These products are tagged as Good for Acne/Blemishes and Good for Pores. Your total comes to $131.00.
+
+Warm regards,  
+Your beauty advisor","{""client_name"": ""Inès"", ""language"": ""en"", ""skin_type"": ""oily"", ""products"": [{""product_name"": ""Superfood Antioxidant Cleanser"", ""brand_name"": ""Youth To The People"", ""step"": ""cleanser"", ""price_usd"": 39.0}, {""product_name"": ""Strawberry Smooth BHA + AHA Salicylic Acid Serum"", ""brand_name"": ""Glow Recipe"", ""step"": ""treatment"", ""price_usd"": 42.0}, {""product_name"": ""Essential Energy Hydrating Cream"", ""brand_name"": ""Shiseido"", ""step"": ""moisturiser"", ""price_usd"": 50.0}], ""total"": 131.0, ""numbers"": [547, 76, 779, 895, 87, 154, 324, 94, 34], ""tags"": [""Good for Acne/Blemishes"", ""Good for Pores""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+13,Inès M.,fr,1.0,template,"Bonjour Inès,
+
+Merci pour votre visite. Comme convenu, voici la routine que nous avons composée pour votre peau grasse :
+
+1. Nettoyant: The INKEY List, Salicylic Acid Acne + Pore Cleanser (11,99 $)
+2. Traitement: Peace Out, Salicylic Acid Acne Healing Dots (19,00 $)
+3. Hydratant: Shiseido, Essential Energy Hydrating Cream (50,00 $)
+
+Total : 80,99 $.
+
+N'hésitez pas à me dire comment votre peau se sent après quelques semaines. Je reste à votre disposition pour ajuster la routine.
+
+Bien à vous,
+Your beauty advisor","{""client_name"": ""Inès"", ""language"": ""fr"", ""skin_type"": ""oily"", ""products"": [{""product_name"": ""Salicylic Acid Acne + Pore Cleanser"", ""brand_name"": ""The INKEY List"", ""step"": ""cleanser"", ""price_usd"": 11.99}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Essential Energy Hydrating Cream"", ""brand_name"": ""Shiseido"", ""step"": ""moisturiser"", ""price_usd"": 50.0}], ""total"": 80.99000000000001, ""numbers"": [199, 85, 270, 328, 79, 686, 324, 94, 34], ""tags"": [""Good for Acne/Blemishes"", ""Good for Pores""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+14,Inès M.,fr,1.0,llm (cached),"Bonjour Inès,
+
+Pour votre peau grasse, je vous recommande le nettoyant The INKEY List Salicylic Acid Acne + Pore Cleanser à 11,99 $. Ensuite, le traitement Peace Out Salicylic Acid Acne Healing Dots est à 19,00 $. Pour hydrater, choisissez la crème Shiseido Essential Energy Hydrating Cream à 50,00 $. Ces produits sont parfaits pour les peaux à tendance acnéique et pour les pores. Le total de votre routine est de 80,99 $.
+
+N’hésitez pas si vous avez des questions.
+
+Votre beauty advisor","{""client_name"": ""Inès"", ""language"": ""fr"", ""skin_type"": ""oily"", ""products"": [{""product_name"": ""Salicylic Acid Acne + Pore Cleanser"", ""brand_name"": ""The INKEY List"", ""step"": ""cleanser"", ""price_usd"": 11.99}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Essential Energy Hydrating Cream"", ""brand_name"": ""Shiseido"", ""step"": ""moisturiser"", ""price_usd"": 50.0}], ""total"": 80.99000000000001, ""numbers"": [199, 85, 270, 328, 79, 686, 324, 94, 34], ""tags"": [""Good for Acne/Blemishes"", ""Good for Pores""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+15,Inès M.,fr,1.5,template,"Bonjour Inès,
+
+Merci pour votre visite. Comme convenu, voici la routine que nous avons composée pour votre peau grasse :
+
+1. Nettoyant: Youth To The People, Superfood Antioxidant Cleanser (39,00 $)
+2. Traitement: Glow Recipe, Strawberry Smooth BHA + AHA Salicylic Acid Serum (42,00 $)
+3. Hydratant: Shiseido, Essential Energy Hydrating Cream (50,00 $)
+
+Total : 131,00 $.
+
+N'hésitez pas à me dire comment votre peau se sent après quelques semaines. Je reste à votre disposition pour ajuster la routine.
+
+Bien à vous,
+Your beauty advisor","{""client_name"": ""Inès"", ""language"": ""fr"", ""skin_type"": ""oily"", ""products"": [{""product_name"": ""Superfood Antioxidant Cleanser"", ""brand_name"": ""Youth To The People"", ""step"": ""cleanser"", ""price_usd"": 39.0}, {""product_name"": ""Strawberry Smooth BHA + AHA Salicylic Acid Serum"", ""brand_name"": ""Glow Recipe"", ""step"": ""treatment"", ""price_usd"": 42.0}, {""product_name"": ""Essential Energy Hydrating Cream"", ""brand_name"": ""Shiseido"", ""step"": ""moisturiser"", ""price_usd"": 50.0}], ""total"": 131.0, ""numbers"": [547, 76, 779, 895, 87, 154, 324, 94, 34], ""tags"": [""Good for Acne/Blemishes"", ""Good for Pores""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+16,Inès M.,fr,1.5,llm (cached),"Bonjour Inès,
+
+Pour votre peau grasse, je vous recommande le Superfood Antioxidant Cleanser de Youth To The People en étape nettoyante à 39,00 $. Ensuite, le Strawberry Smooth BHA + AHA Salicylic Acid Serum de Glow Recipe pour le traitement à 42,00 $. Enfin, la crème Essential Energy Hydrating Cream de Shiseido en hydratation à 50,00 $. Ces produits conviennent parfaitement à votre type de peau et aux besoins liés aux pores et imperfections. Le total s’élève à 131,00 $.
+
+À bientôt,  
+Your beauty advisor","{""client_name"": ""Inès"", ""language"": ""fr"", ""skin_type"": ""oily"", ""products"": [{""product_name"": ""Superfood Antioxidant Cleanser"", ""brand_name"": ""Youth To The People"", ""step"": ""cleanser"", ""price_usd"": 39.0}, {""product_name"": ""Strawberry Smooth BHA + AHA Salicylic Acid Serum"", ""brand_name"": ""Glow Recipe"", ""step"": ""treatment"", ""price_usd"": 42.0}, {""product_name"": ""Essential Energy Hydrating Cream"", ""brand_name"": ""Shiseido"", ""step"": ""moisturiser"", ""price_usd"": 50.0}], ""total"": 131.0, ""numbers"": [547, 76, 779, 895, 87, 154, 324, 94, 34], ""tags"": [""Good for Acne/Blemishes"", ""Good for Pores""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+17,Sophie L.,en,1.0,template,"Dear Sophie,
+
+Thank you for your visit. As discussed, here is the routine we put together for your combination skin:
+
+1. Cleanser: Farmacy, Green Clean Makeup Meltaway Cleansing Balm Limited Edition Jumbo ($60.00)
+2. Treatment: Glow Recipe, Strawberry Smooth BHA + AHA Salicylic Acid Serum ($42.00)
+3. Moisturiser: Sunday Riley, C.E.O. Afterglow Brightening Vitamin C Moisturizer ($65.00)
+
+Total: $167.00.
+
+I would love to hear how your skin feels after a few weeks, and I am happy to adjust the routine at any time.
+
+Warm regards,
+Your beauty advisor","{""client_name"": ""Sophie"", ""language"": ""en"", ""skin_type"": ""combination"", ""products"": [{""product_name"": ""Green Clean Makeup Meltaway Cleansing Balm Limited Edition Jumbo"", ""brand_name"": ""Farmacy"", ""step"": ""cleanser"", ""price_usd"": 60.0}, {""product_name"": ""Strawberry Smooth BHA + AHA Salicylic Acid Serum"", ""brand_name"": ""Glow Recipe"", ""step"": ""treatment"", ""price_usd"": 42.0}, {""product_name"": ""C.E.O. Afterglow Brightening Vitamin C Moisturizer"", ""brand_name"": ""Sunday Riley"", ""step"": ""moisturiser"", ""price_usd"": 65.0}], ""total"": 167.0, ""numbers"": [449, 87, 3253, 895, 90, 504, 413, 90, 231], ""tags"": [""Good for Dullness/Uneven Texture""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+18,Sophie L.,en,1.0,llm,"Dear Sophie,
+
+Thank you for visiting us. For your combination skin and concerns with dullness and uneven texture, I recommend the Farmacy Green Clean Makeup Meltaway Cleansing Balm Limited Edition Jumbo as your cleanser at $60.00. Follow with the Glow Recipe Strawberry Smooth BHA + AHA Salicylic Acid Serum for treatment, priced at $42.00. Complete your routine with the Sunday Riley C.E.O. Afterglow Brightening Vitamin C Moisturizer, available for $65.00. Your total comes to $167.00.
+
+Looking forward to assisting you again.
+
+Warm regards,  
+Your beauty advisor","{""client_name"": ""Sophie"", ""language"": ""en"", ""skin_type"": ""combination"", ""products"": [{""product_name"": ""Green Clean Makeup Meltaway Cleansing Balm Limited Edition Jumbo"", ""brand_name"": ""Farmacy"", ""step"": ""cleanser"", ""price_usd"": 60.0}, {""product_name"": ""Strawberry Smooth BHA + AHA Salicylic Acid Serum"", ""brand_name"": ""Glow Recipe"", ""step"": ""treatment"", ""price_usd"": 42.0}, {""product_name"": ""C.E.O. Afterglow Brightening Vitamin C Moisturizer"", ""brand_name"": ""Sunday Riley"", ""step"": ""moisturiser"", ""price_usd"": 65.0}], ""total"": 167.0, ""numbers"": [449, 87, 3253, 895, 90, 504, 413, 90, 231], ""tags"": [""Good for Dullness/Uneven Texture""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+19,Sophie L.,fr,1.0,template,"Bonjour Sophie,
+
+Merci pour votre visite. Comme convenu, voici la routine que nous avons composée pour votre peau mixte :
+
+1. Nettoyant: Farmacy, Green Clean Makeup Meltaway Cleansing Balm Limited Edition Jumbo (60,00 $)
+2. Traitement: Glow Recipe, Strawberry Smooth BHA + AHA Salicylic Acid Serum (42,00 $)
+3. Hydratant: Sunday Riley, C.E.O. Afterglow Brightening Vitamin C Moisturizer (65,00 $)
+
+Total : 167,00 $.
+
+N'hésitez pas à me dire comment votre peau se sent après quelques semaines. Je reste à votre disposition pour ajuster la routine.
+
+Bien à vous,
+Your beauty advisor","{""client_name"": ""Sophie"", ""language"": ""fr"", ""skin_type"": ""combination"", ""products"": [{""product_name"": ""Green Clean Makeup Meltaway Cleansing Balm Limited Edition Jumbo"", ""brand_name"": ""Farmacy"", ""step"": ""cleanser"", ""price_usd"": 60.0}, {""product_name"": ""Strawberry Smooth BHA + AHA Salicylic Acid Serum"", ""brand_name"": ""Glow Recipe"", ""step"": ""treatment"", ""price_usd"": 42.0}, {""product_name"": ""C.E.O. Afterglow Brightening Vitamin C Moisturizer"", ""brand_name"": ""Sunday Riley"", ""step"": ""moisturiser"", ""price_usd"": 65.0}], ""total"": 167.0, ""numbers"": [449, 87, 3253, 895, 90, 504, 413, 90, 231], ""tags"": [""Good for Dullness/Uneven Texture""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+20,Sophie L.,fr,1.0,llm (cached),"Bonjour Sophie,
+
+Pour votre peau mixte, je vous recommande le Green Clean Makeup Meltaway Cleansing Balm Limited Edition Jumbo de Farmacy en étape de nettoyage à 60,00 $. Ensuite, le Strawberry Smooth BHA + AHA Salicylic Acid Serum de Glow Recipe pour le traitement à 42,00 $. Enfin, terminez avec le C.E.O. Afterglow Brightening Vitamin C Moisturizer de Sunday Riley en hydratation à 65,00 $. Ces produits sont parfaits pour les peaux avec un teint terne et une texture irrégulière.
+
+Le total de votre routine est de 167,00 $.
+
+À bientôt,  
+Your beauty advisor","{""client_name"": ""Sophie"", ""language"": ""fr"", ""skin_type"": ""combination"", ""products"": [{""product_name"": ""Green Clean Makeup Meltaway Cleansing Balm Limited Edition Jumbo"", ""brand_name"": ""Farmacy"", ""step"": ""cleanser"", ""price_usd"": 60.0}, {""product_name"": ""Strawberry Smooth BHA + AHA Salicylic Acid Serum"", ""brand_name"": ""Glow Recipe"", ""step"": ""treatment"", ""price_usd"": 42.0}, {""product_name"": ""C.E.O. Afterglow Brightening Vitamin C Moisturizer"", ""brand_name"": ""Sunday Riley"", ""step"": ""moisturiser"", ""price_usd"": 65.0}], ""total"": 167.0, ""numbers"": [449, 87, 3253, 895, 90, 504, 413, 90, 231], ""tags"": [""Good for Dullness/Uneven Texture""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+21,Emma R.,en,1.0,template,"Dear Emma,
+
+Thank you for your visit. As discussed, here is the routine we put together for your normal skin:
+
+1. Cleanser: Youth To The People, Superfood Antioxidant Cleanser ($39.00)
+2. Treatment: fresh, Tea Elixir Niacinamide & Hyaluronic Acid Anti-Aging Serum ($80.00)
+3. Moisturiser: IT Cosmetics, Confidence in a Cream Anti-Aging Hydrating Moisturizer ($20.00)
+
+Total: $139.00.
+
+I would love to hear how your skin feels after a few weeks, and I am happy to adjust the routine at any time.
+
+Warm regards,
+Your beauty advisor","{""client_name"": ""Emma"", ""language"": ""en"", ""skin_type"": ""normal"", ""products"": [{""product_name"": ""Superfood Antioxidant Cleanser"", ""brand_name"": ""Youth To The People"", ""step"": ""cleanser"", ""price_usd"": 39.0}, {""product_name"": ""Tea Elixir Niacinamide & Hyaluronic Acid Anti-Aging Serum"", ""brand_name"": ""fresh"", ""step"": ""treatment"", ""price_usd"": 80.0}, {""product_name"": ""Confidence in a Cream Anti-Aging Hydrating Moisturizer"", ""brand_name"": ""IT Cosmetics"", ""step"": ""moisturiser"", ""price_usd"": 20.0}], ""total"": 139.0, ""numbers"": [547, 78, 696, 1575, 95, 242, 2179, 95, 392], ""tags"": [""Good for Anti-Aging""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+22,Emma R.,en,1.0,llm (cached),"Dear Emma,
+
+Thank you for visiting us. For your normal skin and your interest in anti-aging, I recommend the Youth To The People Superfood Antioxidant Cleanser as your cleanser at $39.00. Follow with the fresh Tea Elixir Niacinamide & Hyaluronic Acid Anti-Aging Serum for treatment at $80.00. Complete your routine with the IT Cosmetics Confidence in a Cream Anti-Aging Hydrating Moisturizer at $20.00. Your total comes to $139.00. 
+
+Looking forward to seeing you again.
+
+Warm regards,  
+Your beauty advisor","{""client_name"": ""Emma"", ""language"": ""en"", ""skin_type"": ""normal"", ""products"": [{""product_name"": ""Superfood Antioxidant Cleanser"", ""brand_name"": ""Youth To The People"", ""step"": ""cleanser"", ""price_usd"": 39.0}, {""product_name"": ""Tea Elixir Niacinamide & Hyaluronic Acid Anti-Aging Serum"", ""brand_name"": ""fresh"", ""step"": ""treatment"", ""price_usd"": 80.0}, {""product_name"": ""Confidence in a Cream Anti-Aging Hydrating Moisturizer"", ""brand_name"": ""IT Cosmetics"", ""step"": ""moisturiser"", ""price_usd"": 20.0}], ""total"": 139.0, ""numbers"": [547, 78, 696, 1575, 95, 242, 2179, 95, 392], ""tags"": [""Good for Anti-Aging""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+23,Emma R.,fr,1.0,template,"Bonjour Emma,
+
+Merci pour votre visite. Comme convenu, voici la routine que nous avons composée pour votre peau normale :
+
+1. Nettoyant: Youth To The People, Superfood Antioxidant Cleanser (39,00 $)
+2. Traitement: fresh, Tea Elixir Niacinamide & Hyaluronic Acid Anti-Aging Serum (80,00 $)
+3. Hydratant: IT Cosmetics, Confidence in a Cream Anti-Aging Hydrating Moisturizer (20,00 $)
+
+Total : 139,00 $.
+
+N'hésitez pas à me dire comment votre peau se sent après quelques semaines. Je reste à votre disposition pour ajuster la routine.
+
+Bien à vous,
+Your beauty advisor","{""client_name"": ""Emma"", ""language"": ""fr"", ""skin_type"": ""normal"", ""products"": [{""product_name"": ""Superfood Antioxidant Cleanser"", ""brand_name"": ""Youth To The People"", ""step"": ""cleanser"", ""price_usd"": 39.0}, {""product_name"": ""Tea Elixir Niacinamide & Hyaluronic Acid Anti-Aging Serum"", ""brand_name"": ""fresh"", ""step"": ""treatment"", ""price_usd"": 80.0}, {""product_name"": ""Confidence in a Cream Anti-Aging Hydrating Moisturizer"", ""brand_name"": ""IT Cosmetics"", ""step"": ""moisturiser"", ""price_usd"": 20.0}], ""total"": 139.0, ""numbers"": [547, 78, 696, 1575, 95, 242, 2179, 95, 392], ""tags"": [""Good for Anti-Aging""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+24,Emma R.,fr,1.0,llm (cached),"Bonjour Emma,
+
+Merci pour votre visite. Pour votre routine, je vous recommande le nettoyant Youth To The People Superfood Antioxidant Cleanser à 39,00 $. Ensuite, appliquez le sérum fresh Tea Elixir Niacinamide & Hyaluronic Acid Anti-Aging Serum à 80,00 $. Enfin, terminez avec la crème hydratante IT Cosmetics Confidence in a Cream Anti-Aging Hydrating Moisturizer à 20,00 $. Ces produits conviennent parfaitement à votre peau normale et sont Good for Anti-Aging. Le total de votre sélection est de 139,00 $.
+
+Au plaisir de vous revoir bientôt.
+
+Your beauty advisor","{""client_name"": ""Emma"", ""language"": ""fr"", ""skin_type"": ""normal"", ""products"": [{""product_name"": ""Superfood Antioxidant Cleanser"", ""brand_name"": ""Youth To The People"", ""step"": ""cleanser"", ""price_usd"": 39.0}, {""product_name"": ""Tea Elixir Niacinamide & Hyaluronic Acid Anti-Aging Serum"", ""brand_name"": ""fresh"", ""step"": ""treatment"", ""price_usd"": 80.0}, {""product_name"": ""Confidence in a Cream Anti-Aging Hydrating Moisturizer"", ""brand_name"": ""IT Cosmetics"", ""step"": ""moisturiser"", ""price_usd"": 20.0}], ""total"": 139.0, ""numbers"": [547, 78, 696, 1575, 95, 242, 2179, 95, 392], ""tags"": [""Good for Anti-Aging""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+25,Hannah K.,en,3.0,template,"Dear Hannah,
+
+Thank you for your visit. As discussed, here is the routine we put together for your dry skin:
+
+1. Cleanser: The Ordinary, Squalane Cleanser ($9.00)
+2. Treatment: Peace Out, Salicylic Acid Acne Healing Dots ($19.00)
+3. Moisturiser: Herbivore, Mini Lapis Blue Tansy Face Oil - For Oily & Acne-Prone Skin ($15.00)
+
+Total: $43.00.
+
+I would love to hear how your skin feels after a few weeks, and I am happy to adjust the routine at any time.
+
+Warm regards,
+Your beauty advisor","{""client_name"": ""Hannah"", ""language"": ""en"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""Squalane Cleanser"", ""brand_name"": ""The Ordinary"", ""step"": ""cleanser"", ""price_usd"": 9.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Mini Lapis Blue Tansy Face Oil - For Oily & Acne-Prone Skin"", ""brand_name"": ""Herbivore"", ""step"": ""moisturiser"", ""price_usd"": 15.0}], ""total"": 43.0, ""numbers"": [104, 77, 196, 328, 79, 593, 30, 83, 76], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+26,Hannah K.,en,3.0,llm (cached),"Dear Hannah, 
+
+Thank you for visiting us. For your dry skin and concerns tagged as Good for Redness, I recommend starting with The Ordinary Squalane Cleanser as your cleanser at $9.00. Follow with Peace Out Salicylic Acid Acne Healing Dots for treatment, priced at $19.00. Finish your routine with Herbivore Mini Lapis Blue Tansy Face Oil - For Oily & Acne-Prone Skin as your moisturiser for $15.00. Your total comes to $43.00. 
+
+Please feel free to reach out if you have any questions.
+
+Warm regards,  
+Your beauty advisor","{""client_name"": ""Hannah"", ""language"": ""en"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""Squalane Cleanser"", ""brand_name"": ""The Ordinary"", ""step"": ""cleanser"", ""price_usd"": 9.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Mini Lapis Blue Tansy Face Oil - For Oily & Acne-Prone Skin"", ""brand_name"": ""Herbivore"", ""step"": ""moisturiser"", ""price_usd"": 15.0}], ""total"": 43.0, ""numbers"": [104, 77, 196, 328, 79, 593, 30, 83, 76], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+27,Hannah K.,en,5.0,template,"Dear Hannah,
+
+Thank you for your visit. As discussed, here is the routine we put together for your dry skin:
+
+1. Cleanser: WASO, SHIKULIME Gel-to-Oil Cleanser ($28.00)
+2. Treatment: Peace Out, Salicylic Acid Acne Healing Dots ($19.00)
+3. Moisturiser: Tatcha, Mini Indigo Overnight Repair Serum in Cream Treatment ($22.00)
+
+Total: $69.00.
+
+I would love to hear how your skin feels after a few weeks, and I am happy to adjust the routine at any time.
+
+Warm regards,
+Your beauty advisor","{""client_name"": ""Hannah"", ""language"": ""en"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Mini Indigo Overnight Repair Serum in Cream Treatment"", ""brand_name"": ""Tatcha"", ""step"": ""moisturiser"", ""price_usd"": 22.0}], ""total"": 69.0, ""numbers"": [369, 94, 79, 328, 79, 593, 96, 83, 162], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+28,Hannah K.,en,5.0,llm (cached),"Dear Hannah,
+
+Thank you for visiting us. For your dry skin and concerns tagged as Good for Redness, I recommend the WASO SHIKULIME Gel-to-Oil Cleanser as your cleanser at $28.00. Follow with the Peace Out Salicylic Acid Acne Healing Dots for treatment, priced at $19.00. Complete your routine with the Tatcha Mini Indigo Overnight Repair Serum in Cream Treatment moisturizer for $22.00. Your total comes to $69.00.
+
+Looking forward to your glowing results.
+
+Warm regards,  
+Your beauty advisor","{""client_name"": ""Hannah"", ""language"": ""en"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Mini Indigo Overnight Repair Serum in Cream Treatment"", ""brand_name"": ""Tatcha"", ""step"": ""moisturiser"", ""price_usd"": 22.0}], ""total"": 69.0, ""numbers"": [369, 94, 79, 328, 79, 593, 96, 83, 162], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+29,Hannah K.,en,8.0,template,"Dear Hannah,
+
+Thank you for your visit. As discussed, here is the routine we put together for your dry skin:
+
+1. Cleanser: WASO, SHIKULIME Gel-to-Oil Cleanser ($28.00)
+2. Treatment: Peace Out, Salicylic Acid Acne Healing Dots ($19.00)
+3. Moisturiser: REN Clean Skincare, Evercalm Barrier Support Face Oil ($60.00)
+
+Total: $107.00.
+
+I would love to hear how your skin feels after a few weeks, and I am happy to adjust the routine at any time.
+
+Warm regards,
+Your beauty advisor","{""client_name"": ""Hannah"", ""language"": ""en"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Evercalm Barrier Support Face Oil"", ""brand_name"": ""REN Clean Skincare"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 107.0, ""numbers"": [369, 94, 79, 328, 79, 593, 185, 100, 40], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+30,Hannah K.,en,8.0,llm (cached),"Dear Hannah, 
+
+Thank you for visiting us. For your dry skin and concerns tagged as Good for Redness, I recommend the WASO SHIKULIME Gel-to-Oil Cleanser for your cleansing step at $28.00. Follow with the Peace Out Salicylic Acid Acne Healing Dots as your treatment, priced at $19.00. Complete your routine with the REN Clean Skincare Evercalm Barrier Support Face Oil as your moisturiser for $60.00. Your total comes to $107.00. 
+
+Please feel free to reach out if you have any questions.
+
+Warm regards,  
+Your beauty advisor","{""client_name"": ""Hannah"", ""language"": ""en"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Evercalm Barrier Support Face Oil"", ""brand_name"": ""REN Clean Skincare"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 107.0, ""numbers"": [369, 94, 79, 328, 79, 593, 185, 100, 40], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+31,Hannah K.,fr,3.0,template,"Bonjour Hannah,
+
+Merci pour votre visite. Comme convenu, voici la routine que nous avons composée pour votre peau sèche :
+
+1. Nettoyant: The Ordinary, Squalane Cleanser (9,00 $)
+2. Traitement: Peace Out, Salicylic Acid Acne Healing Dots (19,00 $)
+3. Hydratant: Herbivore, Mini Lapis Blue Tansy Face Oil - For Oily & Acne-Prone Skin (15,00 $)
+
+Total : 43,00 $.
+
+N'hésitez pas à me dire comment votre peau se sent après quelques semaines. Je reste à votre disposition pour ajuster la routine.
+
+Bien à vous,
+Your beauty advisor","{""client_name"": ""Hannah"", ""language"": ""fr"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""Squalane Cleanser"", ""brand_name"": ""The Ordinary"", ""step"": ""cleanser"", ""price_usd"": 9.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Mini Lapis Blue Tansy Face Oil - For Oily & Acne-Prone Skin"", ""brand_name"": ""Herbivore"", ""step"": ""moisturiser"", ""price_usd"": 15.0}], ""total"": 43.0, ""numbers"": [104, 77, 196, 328, 79, 593, 30, 83, 76], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+32,Hannah K.,fr,3.0,llm (cached),"Bonjour Hannah,  
+Pour votre peau sèche, je vous recommande le Squalane Cleanser de The Ordinary au prix de 9,00 $ pour le nettoyage. Ensuite, le traitement Salicylic Acid Acne Healing Dots de Peace Out à 19,00 $. Enfin, pour l'hydratation, le Mini Lapis Blue Tansy Face Oil - For Oily & Acne-Prone Skin de Herbivore à 15,00 $. Ces produits conviennent bien à votre type de peau et sont ""Good for Redness"". Le total de votre routine est de 43,00 $.  
+N'hésitez pas à me contacter pour toute question.  
+Votre beauty advisor","{""client_name"": ""Hannah"", ""language"": ""fr"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""Squalane Cleanser"", ""brand_name"": ""The Ordinary"", ""step"": ""cleanser"", ""price_usd"": 9.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Mini Lapis Blue Tansy Face Oil - For Oily & Acne-Prone Skin"", ""brand_name"": ""Herbivore"", ""step"": ""moisturiser"", ""price_usd"": 15.0}], ""total"": 43.0, ""numbers"": [104, 77, 196, 328, 79, 593, 30, 83, 76], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+33,Hannah K.,fr,5.0,template,"Bonjour Hannah,
+
+Merci pour votre visite. Comme convenu, voici la routine que nous avons composée pour votre peau sèche :
+
+1. Nettoyant: WASO, SHIKULIME Gel-to-Oil Cleanser (28,00 $)
+2. Traitement: Peace Out, Salicylic Acid Acne Healing Dots (19,00 $)
+3. Hydratant: Tatcha, Mini Indigo Overnight Repair Serum in Cream Treatment (22,00 $)
+
+Total : 69,00 $.
+
+N'hésitez pas à me dire comment votre peau se sent après quelques semaines. Je reste à votre disposition pour ajuster la routine.
+
+Bien à vous,
+Your beauty advisor","{""client_name"": ""Hannah"", ""language"": ""fr"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Mini Indigo Overnight Repair Serum in Cream Treatment"", ""brand_name"": ""Tatcha"", ""step"": ""moisturiser"", ""price_usd"": 22.0}], ""total"": 69.0, ""numbers"": [369, 94, 79, 328, 79, 593, 96, 83, 162], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+34,Hannah K.,fr,5.0,llm (cached),"Bonjour Hannah,
+
+Pour votre peau sèche et avec une attention particulière à la rougeur, je vous recommande le SHIKULIME Gel-to-Oil Cleanser de WASO pour le nettoyage à 28,00 $. Ensuite, le traitement Salicylic Acid Acne Healing Dots de Peace Out à 19,00 $. Enfin, pour l'hydratation, le Mini Indigo Overnight Repair Serum in Cream Treatment de Tatcha à 22,00 $. Le total de ces soins est de 69,00 $.
+
+N'hésitez pas à me contacter pour toute question.
+
+Votre beauty advisor","{""client_name"": ""Hannah"", ""language"": ""fr"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Mini Indigo Overnight Repair Serum in Cream Treatment"", ""brand_name"": ""Tatcha"", ""step"": ""moisturiser"", ""price_usd"": 22.0}], ""total"": 69.0, ""numbers"": [369, 94, 79, 328, 79, 593, 96, 83, 162], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+35,Hannah K.,fr,8.0,template,"Bonjour Hannah,
+
+Merci pour votre visite. Comme convenu, voici la routine que nous avons composée pour votre peau sèche :
+
+1. Nettoyant: WASO, SHIKULIME Gel-to-Oil Cleanser (28,00 $)
+2. Traitement: Peace Out, Salicylic Acid Acne Healing Dots (19,00 $)
+3. Hydratant: REN Clean Skincare, Evercalm Barrier Support Face Oil (60,00 $)
+
+Total : 107,00 $.
+
+N'hésitez pas à me dire comment votre peau se sent après quelques semaines. Je reste à votre disposition pour ajuster la routine.
+
+Bien à vous,
+Your beauty advisor","{""client_name"": ""Hannah"", ""language"": ""fr"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Evercalm Barrier Support Face Oil"", ""brand_name"": ""REN Clean Skincare"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 107.0, ""numbers"": [369, 94, 79, 328, 79, 593, 185, 100, 40], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,
+36,Hannah K.,fr,8.0,llm (cached),"Bonjour Hannah,
+
+Pour votre peau sèche et en tenant compte de votre sensibilité au rougeur, je vous recommande le nettoyant WASO SHIKULIME Gel-to-Oil Cleanser à 28,00 $, parfait pour la première étape. Ensuite, le traitement Peace Out Salicylic Acid Acne Healing Dots à 19,00 $ viendra compléter votre routine. Enfin, pour l'hydratation, l'huile visage REN Clean Skincare Evercalm Barrier Support Face Oil à 60,00 $ sera idéale. Le total de ces produits est de 107,00 $.
+
+N'hésitez pas à me contacter pour toute question.
+
+Votre beauty advisor","{""client_name"": ""Hannah"", ""language"": ""fr"", ""skin_type"": ""dry"", ""products"": [{""product_name"": ""SHIKULIME Gel-to-Oil Cleanser"", ""brand_name"": ""WASO"", ""step"": ""cleanser"", ""price_usd"": 28.0}, {""product_name"": ""Salicylic Acid Acne Healing Dots"", ""brand_name"": ""Peace Out"", ""step"": ""treatment"", ""price_usd"": 19.0}, {""product_name"": ""Evercalm Barrier Support Face Oil"", ""brand_name"": ""REN Clean Skincare"", ""step"": ""moisturiser"", ""price_usd"": 60.0}], ""total"": 107.0, ""numbers"": [369, 94, 79, 328, 79, 593, 185, 100, 40], ""tags"": [""Good for Redness""], ""advisor_name"": ""Your beauty advisor""}",pass,,,,,,

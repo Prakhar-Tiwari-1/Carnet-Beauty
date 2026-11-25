@@ -1,0 +1,2 @@
+evaluated 2026-11-25T00:50:18 | reason: first run
+evaluated 2026-11-25T06:20:16 | reason: Extended model study (9 families, 3 rolling validation folds, selection rule fixed in config before this run) after the first single-period selection failed on established products

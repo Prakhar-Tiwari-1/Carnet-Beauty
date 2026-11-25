@@ -1,0 +1,82 @@
+== stage: study
+Devices: torch: cuda (NVIDIA RTX 4000 Ada Generation); lightgbm: cuda; LightGBM runs on cpu (measured choice)
+F1: evaluate 2021-07-01..2021-12-01 (8,147 clients); ranker trained on 2021-02-01..2021-07-01 (9,047)
+F2: evaluate 2022-02-01..2022-07-01 (10,004 clients); ranker trained on 2021-09-01..2022-02-01 (9,114)
+F3_B: evaluate 2022-07-01..2022-12-01 (9,271 clients); ranker trained on 2022-02-01..2022-07-01 (10,004)
+  tune itemknn {'shrink': 0}: mean catalogue NDCG@10 0.0509 (9s)
+  tune itemknn {'shrink': 10}: mean catalogue NDCG@10 0.0531 (9s)
+  tune itemknn {'shrink': 50}: mean catalogue NDCG@10 0.0520 (9s)
+  tune itemknn {'shrink': 200}: mean catalogue NDCG@10 0.0509 (9s)
+  tune rp3beta {'alpha': 0.25, 'beta': 0.0}: mean catalogue NDCG@10 0.0509 (6s)
+  tune rp3beta {'alpha': 0.25, 'beta': 0.15}: mean catalogue NDCG@10 0.0519 (4s)
+  tune rp3beta {'alpha': 0.25, 'beta': 0.3}: mean catalogue NDCG@10 0.0525 (4s)
+  tune rp3beta {'alpha': 0.25, 'beta': 0.5}: mean catalogue NDCG@10 0.0511 (5s)
+  tune rp3beta {'alpha': 0.5, 'beta': 0.0}: mean catalogue NDCG@10 0.0518 (4s)
+  tune rp3beta {'alpha': 0.5, 'beta': 0.15}: mean catalogue NDCG@10 0.0529 (4s)
+  tune rp3beta {'alpha': 0.5, 'beta': 0.3}: mean catalogue NDCG@10 0.0534 (4s)
+  tune rp3beta {'alpha': 0.5, 'beta': 0.5}: mean catalogue NDCG@10 0.0518 (4s)
+  tune rp3beta {'alpha': 1.0, 'beta': 0.0}: mean catalogue NDCG@10 0.0532 (4s)
+  tune rp3beta {'alpha': 1.0, 'beta': 0.15}: mean catalogue NDCG@10 0.0540 (4s)
+  tune rp3beta {'alpha': 1.0, 'beta': 0.3}: mean catalogue NDCG@10 0.0533 (4s)
+  tune rp3beta {'alpha': 1.0, 'beta': 0.5}: mean catalogue NDCG@10 0.0504 (4s)
+  NOTE rp3beta: best value on grid edge for ['alpha']
+  tune ease {'lam': 300}: mean catalogue NDCG@10 0.0458 (4s)
+  tune ease {'lam': 1000}: mean catalogue NDCG@10 0.0477 (4s)
+  tune ease {'lam': 3000}: mean catalogue NDCG@10 0.0484 (4s)
+  tune ease {'lam': 10000}: mean catalogue NDCG@10 0.0491 (4s)
+  tune ease {'lam': 30000}: mean catalogue NDCG@10 0.0497 (4s)
+  NOTE ease: best value on grid edge for ['lam']
+  tune ials {'factors': 64, 'reg': 0.1, 'alpha': 5}: mean catalogue NDCG@10 0.0361 (62s)
+  tune ials {'factors': 64, 'reg': 0.1, 'alpha': 20}: mean catalogue NDCG@10 0.0380 (63s)
+  tune ials {'factors': 64, 'reg': 1.0, 'alpha': 5}: mean catalogue NDCG@10 0.0361 (62s)
+  tune ials {'factors': 64, 'reg': 1.0, 'alpha': 20}: mean catalogue NDCG@10 0.0382 (62s)
+  tune ials {'factors': 64, 'reg': 10.0, 'alpha': 5}: mean catalogue NDCG@10 0.0363 (62s)
+  tune ials {'factors': 64, 'reg': 10.0, 'alpha': 20}: mean catalogue NDCG@10 0.0389 (62s)
+  tune ials {'factors': 128, 'reg': 0.1, 'alpha': 5}: mean catalogue NDCG@10 0.0357 (183s)
+  tune ials {'factors': 128, 'reg': 0.1, 'alpha': 20}: mean catalogue NDCG@10 0.0411 (183s)
+  tune ials {'factors': 128, 'reg': 1.0, 'alpha': 5}: mean catalogue NDCG@10 0.0357 (183s)
+  tune ials {'factors': 128, 'reg': 1.0, 'alpha': 20}: mean catalogue NDCG@10 0.0410 (183s)
+  tune ials {'factors': 128, 'reg': 10.0, 'alpha': 5}: mean catalogue NDCG@10 0.0351 (183s)
+  tune ials {'factors': 128, 'reg': 10.0, 'alpha': 20}: mean catalogue NDCG@10 0.0417 (183s)
+  NOTE ials: best value on grid edge for ['reg']
+  tune bpr {'factors': 64, 'lr': 0.001, 'weight_decay': 0.0001}: mean catalogue NDCG@10 0.0263 (47s)
+  tune bpr {'factors': 64, 'lr': 0.001, 'weight_decay': 0.001}: mean catalogue NDCG@10 0.0275 (46s)
+  tune bpr {'factors': 64, 'lr': 0.003, 'weight_decay': 0.0001}: mean catalogue NDCG@10 0.0325 (46s)
+  tune bpr {'factors': 64, 'lr': 0.003, 'weight_decay': 0.001}: mean catalogue NDCG@10 0.0345 (46s)
+  tune bpr {'factors': 64, 'lr': 0.01, 'weight_decay': 0.0001}: mean catalogue NDCG@10 0.0363 (46s)
+  tune bpr {'factors': 64, 'lr': 0.01, 'weight_decay': 0.001}: mean catalogue NDCG@10 0.0407 (46s)
+  NOTE bpr: best value on grid edge for ['lr']
+Tuned: {'itemknn': {'shrink': 10}, 'rp3beta': {'alpha': 1.0, 'beta': 0.15}, 'ease': {'lam': 30000}, 'ials': {'factors': 128, 'reg': 10.0, 'alpha': 20}, 'bpr': {'factors': 64, 'lr': 0.01, 'weight_decay': 0.001}}
+F1 done (201s); candidate coverage {'catalogue': 0.5387205387205387, 'launch': 1.0}
+F2 done (213s); candidate coverage {'catalogue': 0.702958461998207, 'launch': 1.0}
+F3_B done (223s); candidate coverage {'catalogue': 0.5905153265215459, 'launch': 1.0}
+Selection [returning_established] (baseline popularity): chosen = ranker_client_centric@100
+                           model  mean_ndcg  worst_diff_ci_low  passes_every_fold
+       ranker_client_centric@100     0.0769             0.0239               True
+             ranker_original@300     0.0758             0.0221               True
+             ranker_original@100     0.0740             0.0192               True
+       ranker_client_centric@300     0.0732             0.0113               True
+ranker_client_centric_binary@100     0.0688             0.0189               True
+ranker_client_centric_binary@300     0.0661             0.0157               True
+                         rp3beta     0.0539             0.0002               True
+                         itemknn     0.0531             0.0041               True
+                            ease     0.0497            -0.0036              False
+                            ials     0.0417            -0.0040              False
+                             bpr     0.0407            -0.0121              False
+                         content     0.0346            -0.0232              False
+Selection [launch_slot] (baseline random): chosen = ranker_client_centric@100
+                           model  mean_ndcg  worst_diff_ci_low  passes_every_fold
+       ranker_client_centric@100     0.1156             0.0336               True
+ranker_client_centric_binary@100     0.1099             0.0213               True
+       ranker_client_centric@300     0.1083             0.0308               True
+ranker_client_centric_binary@300     0.1040             0.0152               True
+             ranker_original@100     0.0915            -0.0011              False
+             ranker_original@300     0.0829            -0.0041              False
+                         content     0.0593             0.0213               True
+            hand_v2_consultation     0.0410            -0.0087              False
+                         itemknn     0.0217             0.0000              False
+                         rp3beta     0.0217             0.0000              False
+                            ease     0.0217             0.0000              False
+                            ials     0.0217             0.0000              False
+                             bpr     0.0217             0.0000              False
+Wrote results/model_study.json

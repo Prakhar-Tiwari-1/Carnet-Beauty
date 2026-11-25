@@ -1,0 +1,2203 @@
+{
+  "test_period": "2022-12-01 to 2023-03-21",
+  "runs": [
+    "evaluated 2026-11-25T00:50:18 | reason: first run"
+  ],
+  "selection": {
+    "returning_established": "ranker_client_centric@100",
+    "launch_slot": "ranker_client_centric@100"
+  },
+  "deployed": {
+    "returning_established": "popularity",
+    "launch_slot": "ranker_client_centric@100"
+  },
+  "deployment_reason": "Validation pick (client-centric ranker) did not beat popularity on the test period (CI includes 0); fall back to the baseline. EASE, best on test, is reported but not deployed because it would be chosen on the test period.",
+  "selection_tables": {
+    "returning_established": [
+      {
+        "model": "ranker_client_centric@100",
+        "mean_ndcg": 0.07689045220960117,
+        "worst_diff_ci_low": 0.023854417949625062,
+        "passes_every_fold": true
+      },
+      {
+        "model": "ranker_original@300",
+        "mean_ndcg": 0.07576961556023204,
+        "worst_diff_ci_low": 0.022088350271331193,
+        "passes_every_fold": true
+      },
+      {
+        "model": "ranker_original@100",
+        "mean_ndcg": 0.07402910946266615,
+        "worst_diff_ci_low": 0.01920834163877556,
+        "passes_every_fold": true
+      },
+      {
+        "model": "ranker_client_centric@300",
+        "mean_ndcg": 0.07320429219528773,
+        "worst_diff_ci_low": 0.011321738634989656,
+        "passes_every_fold": true
+      },
+      {
+        "model": "ranker_client_centric_binary@100",
+        "mean_ndcg": 0.06875805277865073,
+        "worst_diff_ci_low": 0.018875862477933943,
+        "passes_every_fold": true
+      },
+      {
+        "model": "ranker_client_centric_binary@300",
+        "mean_ndcg": 0.0660672724673958,
+        "worst_diff_ci_low": 0.015734765704411666,
+        "passes_every_fold": true
+      },
+      {
+        "model": "rp3beta",
+        "mean_ndcg": 0.05394990852500372,
+        "worst_diff_ci_low": 0.00018966155184392736,
+        "passes_every_fold": true
+      },
+      {
+        "model": "itemknn",
+        "mean_ndcg": 0.053077390461205444,
+        "worst_diff_ci_low": 0.004132604985069873,
+        "passes_every_fold": true
+      },
+      {
+        "model": "ease",
+        "mean_ndcg": 0.04969795378004301,
+        "worst_diff_ci_low": -0.0036422481004393416,
+        "passes_every_fold": false
+      },
+      {
+        "model": "ials",
+        "mean_ndcg": 0.04172274457375374,
+        "worst_diff_ci_low": -0.004044091674134402,
+        "passes_every_fold": false
+      },
+      {
+        "model": "bpr",
+        "mean_ndcg": 0.040666040498558084,
+        "worst_diff_ci_low": -0.012102451189982263,
+        "passes_every_fold": false
+      },
+      {
+        "model": "content",
+        "mean_ndcg": 0.03463994955314989,
+        "worst_diff_ci_low": -0.023170817354702247,
+        "passes_every_fold": false
+      }
+    ],
+    "launch_slot": [
+      {
+        "model": "ranker_client_centric@100",
+        "mean_ndcg": 0.11561384035376238,
+        "worst_diff_ci_low": 0.03364586032705185,
+        "passes_every_fold": true
+      },
+      {
+        "model": "ranker_client_centric_binary@100",
+        "mean_ndcg": 0.10989599173137841,
+        "worst_diff_ci_low": 0.02133095124663055,
+        "passes_every_fold": true
+      },
+      {
+        "model": "ranker_client_centric@300",
+        "mean_ndcg": 0.10825799301880042,
+        "worst_diff_ci_low": 0.03081784214621583,
+        "passes_every_fold": true
+      },
+      {
+        "model": "ranker_client_centric_binary@300",
+        "mean_ndcg": 0.1040158909624802,
+        "worst_diff_ci_low": 0.015156067733687861,
+        "passes_every_fold": true
+      },
+      {
+        "model": "ranker_original@100",
+        "mean_ndcg": 0.09153765207768534,
+        "worst_diff_ci_low": -0.0010518872860446973,
+        "passes_every_fold": false
+      },
+      {
+        "model": "ranker_original@300",
+        "mean_ndcg": 0.08292835834128753,
+        "worst_diff_ci_low": -0.0040533014599445725,
+        "passes_every_fold": false
+      },
+      {
+        "model": "content",
+        "mean_ndcg": 0.0592870569988632,
+        "worst_diff_ci_low": 0.021332533482205845,
+        "passes_every_fold": true
+      },
+      {
+        "model": "hand_v2_consultation",
+        "mean_ndcg": 0.04100471402338205,
+        "worst_diff_ci_low": -0.008737607822119357,
+        "passes_every_fold": false
+      },
+      {
+        "model": "itemknn",
+        "mean_ndcg": 0.021749268337298202,
+        "worst_diff_ci_low": 0.0,
+        "passes_every_fold": false
+      },
+      {
+        "model": "rp3beta",
+        "mean_ndcg": 0.021749268337298202,
+        "worst_diff_ci_low": 0.0,
+        "passes_every_fold": false
+      },
+      {
+        "model": "ease",
+        "mean_ndcg": 0.021749268337298202,
+        "worst_diff_ci_low": 0.0,
+        "passes_every_fold": false
+      },
+      {
+        "model": "ials",
+        "mean_ndcg": 0.021749268337298202,
+        "worst_diff_ci_low": 0.0,
+        "passes_every_fold": false
+      },
+      {
+        "model": "bpr",
+        "mean_ndcg": 0.021749268337298202,
+        "worst_diff_ci_low": 0.0,
+        "passes_every_fold": false
+      }
+    ]
+  },
+  "rule": "beats baseline (CI > 0) in every fold, then highest mean",
+  "test": {
+    "catalogue": [
+      {
+        "model": "ease",
+        "label": "EASE linear model on what she liked",
+        "ndcg": 0.12640957014524692,
+        "ci": [
+          0.11910890810428482,
+          0.13376107587691585
+        ],
+        "diff": 0.08447116077935621,
+        "diff_ci": [
+          0.07798760615708943,
+          0.09080912028712776
+        ],
+        "recall": 0.1714100581007056,
+        "recall_ci": [
+          0.16176640073222806,
+          0.1815133174845405
+        ],
+        "coverage": 0.995995995995996,
+        "bestseller_share": 0.5483322432962721
+      },
+      {
+        "model": "rp3beta",
+        "label": "RP3beta graph model on what she liked",
+        "ndcg": 0.10087855508123235,
+        "ci": [
+          0.09463819885510119,
+          0.10726634946553949
+        ],
+        "diff": 0.058940145715341626,
+        "diff_ci": [
+          0.05368317986828615,
+          0.06414008083592154
+        ],
+        "recall": 0.1652194261906492,
+        "recall_ci": [
+          0.15549140341406528,
+          0.17470189432869285
+        ],
+        "coverage": 0.997997997997998,
+        "bestseller_share": 0.4984085458905603
+      },
+      {
+        "model": "itemknn",
+        "label": "item-kNN: clients who liked what she liked also liked this",
+        "ndcg": 0.06618853072848865,
+        "ci": [
+          0.06160319584037135,
+          0.07094341168541424
+        ],
+        "diff": 0.02425012136259793,
+        "diff_ci": [
+          0.01961883875351372,
+          0.02869649438721766
+        ],
+        "recall": 0.1370769185517387,
+        "recall_ci": [
+          0.1280884210380613,
+          0.14596643248172023
+        ],
+        "coverage": 0.997997997997998,
+        "bestseller_share": 0.4910834968388925
+      },
+      {
+        "model": "bpr",
+        "label": "BPR matrix factorisation",
+        "ndcg": 0.06454923357980391,
+        "ci": [
+          0.059365474066818094,
+          0.06938205363590526
+        ],
+        "diff": 0.022610824213913187,
+        "diff_ci": [
+          0.017439387017419393,
+          0.02782231621940076
+        ],
+        "recall": 0.11527652337004853,
+        "recall_ci": [
+          0.10670825028289058,
+          0.12349228409480208
+        ],
+        "coverage": 0.6416416416416416,
+        "bestseller_share": 0.4503597122302158
+      },
+      {
+        "model": "ranker_client_centric_binary@300",
+        "label": "LightGBM ranker (client-centric-binary@300)",
+        "ndcg": 0.042792233397620796,
+        "ci": [
+          0.038853640602475564,
+          0.047169079887724265
+        ],
+        "diff": 0.000853824031730073,
+        "diff_ci": [
+          -0.004544336271490177,
+          0.005988010991074352
+        ],
+        "recall": 0.0764699928368993,
+        "recall_ci": [
+          0.06987561249701536,
+          0.08381949635097116
+        ],
+        "coverage": 0.5135135135135135,
+        "bestseller_share": 0.7255940701983867
+      },
+      {
+        "model": "ranker_original@300",
+        "label": "LightGBM ranker (original@300)",
+        "ndcg": 0.042731647003626645,
+        "ci": [
+          0.03809873058688796,
+          0.046926783601445525
+        ],
+        "diff": 0.0007932376377359218,
+        "diff_ci": [
+          -0.0049129559978781006,
+          0.006304598942387904
+        ],
+        "recall": 0.07576873566082198,
+        "recall_ci": [
+          0.0687601542142909,
+          0.08247787700575471
+        ],
+        "coverage": 0.33733733733733734,
+        "bestseller_share": 0.7081752779594506
+      },
+      {
+        "model": "popularity",
+        "label": "popularity (what clients liked most in the past year)",
+        "ndcg": 0.04193840936589072,
+        "ci": [
+          0.03867286411497963,
+          0.04526196685830096
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.11341783715884436,
+        "recall_ci": [
+          0.1054936937895571,
+          0.12179592256930384
+        ],
+        "coverage": 0.018018018018018018,
+        "bestseller_share": 1.0
+      },
+      {
+        "model": "hand_v2_consultation",
+        "label": "hand_v2_consultation",
+        "ndcg": 0.04193840936589072,
+        "ci": [
+          0.03867286411497963,
+          0.04526196685830096
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.11341783715884436,
+        "recall_ci": [
+          0.1054936937895571,
+          0.12179592256930384
+        ],
+        "coverage": 0.018018018018018018,
+        "bestseller_share": 1.0
+      },
+      {
+        "model": "ranker_client_centric@300",
+        "label": "LightGBM ranker (client-centric@300)",
+        "ndcg": 0.041411294112135066,
+        "ci": [
+          0.03725255533719798,
+          0.04544768391719569
+        ],
+        "diff": -0.000527115253755657,
+        "diff_ci": [
+          -0.0062592260080275445,
+          0.0046240413659428235
+        ],
+        "recall": 0.07307037486893601,
+        "recall_ci": [
+          0.06604425550468716,
+          0.07951098212339218
+        ],
+        "coverage": 0.4184184184184184,
+        "bestseller_share": 0.6834532374100719
+      },
+      {
+        "model": "ranker_client_centric@100",
+        "label": "LightGBM ranker (client-centric@100)",
+        "ndcg": 0.03799713301057495,
+        "ci": [
+          0.033835157505755734,
+          0.04208363402841827
+        ],
+        "diff": -0.00394127635531577,
+        "diff_ci": [
+          -0.009530903427305552,
+          0.0011081694619471277
+        ],
+        "recall": 0.06827758572362888,
+        "recall_ci": [
+          0.06176314143490402,
+          0.0754519176866299
+        ],
+        "coverage": 0.42842842842842843,
+        "bestseller_share": 0.7118160017440593
+      },
+      {
+        "model": "ranker_client_centric_binary@100",
+        "label": "LightGBM ranker (client-centric-binary@100)",
+        "ndcg": 0.037058696482625955,
+        "ci": [
+          0.03333046231752727,
+          0.040854223203282955
+        ],
+        "diff": -0.004879712883264768,
+        "diff_ci": [
+          -0.009920310134636194,
+          -6.0432339476685546e-05
+        ],
+        "recall": 0.06935239687038247,
+        "recall_ci": [
+          0.06288099823171765,
+          0.07616136744284227
+        ],
+        "coverage": 0.46546546546546547,
+        "bestseller_share": 0.7726182690211467
+      },
+      {
+        "model": "ranker_original@100",
+        "label": "LightGBM ranker (original@100)",
+        "ndcg": 0.03649248268309134,
+        "ci": [
+          0.03274591046831143,
+          0.03998379065850586
+        ],
+        "diff": -0.005445926682799383,
+        "diff_ci": [
+          -0.010292296141538607,
+          -0.0009866129354509643
+        ],
+        "recall": 0.07063595876545517,
+        "recall_ci": [
+          0.06371151563597607,
+          0.07708636986514683
+        ],
+        "coverage": 0.2852852852852853,
+        "bestseller_share": 0.7429038587311969
+      },
+      {
+        "model": "ials",
+        "label": "iALS matrix factorisation",
+        "ndcg": 0.03620885186281967,
+        "ci": [
+          0.03241319704978074,
+          0.04020499172525285
+        ],
+        "diff": -0.005729557503071053,
+        "diff_ci": [
+          -0.01028858205599676,
+          -0.0012082895421545762
+        ],
+        "recall": 0.06521388949446502,
+        "recall_ci": [
+          0.05845366347614549,
+          0.07159730657032815
+        ],
+        "coverage": 0.993993993993994,
+        "bestseller_share": 0.339241334205363
+      },
+      {
+        "model": "content",
+        "label": "content match to products she liked (name, Sephora highlights, ingredients)",
+        "ndcg": 0.017492022448133106,
+        "ci": [
+          0.014655056434269063,
+          0.0203053361051746
+        ],
+        "diff": -0.024446386917757617,
+        "diff_ci": [
+          -0.028893525116639805,
+          -0.020277888201532663
+        ],
+        "recall": 0.03278156695422882,
+        "recall_ci": [
+          0.02809740519272893,
+          0.03732393306134313
+        ],
+        "coverage": 1.0,
+        "bestseller_share": 0.13488118596032264
+      },
+      {
+        "model": "random",
+        "label": "random order (no model beat random on validation)",
+        "ndcg": 0.0051922182666491535,
+        "ci": [
+          0.003964629469027552,
+          0.0065252466252965265
+        ],
+        "diff": -0.03674619109924157,
+        "diff_ci": [
+          -0.040148906891858266,
+          -0.033468392762666874
+        ],
+        "recall": 0.0103650413002931,
+        "recall_ci": [
+          0.007994574037739503,
+          0.012850598309231399
+        ],
+        "coverage": 1.0,
+        "bestseller_share": 0.09834314366688468
+      }
+    ],
+    "launch": [
+      {
+        "model": "ranker_client_centric_binary@100",
+        "label": "LightGBM ranker (client-centric-binary@100)",
+        "ndcg": 0.14708838048917003,
+        "ci": [
+          0.13897958209531838,
+          0.15579461368541794
+        ],
+        "diff": 0.09678029850308471,
+        "diff_ci": [
+          0.08703135964016537,
+          0.10637991951365543
+        ],
+        "recall": 0.23432271676441332,
+        "recall_ci": [
+          0.2225393341086415,
+          0.2464908977366531
+        ],
+        "coverage": 0.9805825242718447,
+        "bestseller_share": null
+      },
+      {
+        "model": "ranker_client_centric_binary@300",
+        "label": "LightGBM ranker (client-centric-binary@300)",
+        "ndcg": 0.1452877070725502,
+        "ci": [
+          0.1373860079011916,
+          0.15392902726246452
+        ],
+        "diff": 0.09497962508646489,
+        "diff_ci": [
+          0.0858639787203333,
+          0.10452143107075498
+        ],
+        "recall": 0.23488567962876009,
+        "recall_ci": [
+          0.22252522643403924,
+          0.24751160457160587
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "ranker_client_centric@100",
+        "label": "LightGBM ranker (client-centric@100)",
+        "ndcg": 0.14294036142483996,
+        "ci": [
+          0.13502512916420042,
+          0.15115155232505548
+        ],
+        "diff": 0.09263227943875464,
+        "diff_ci": [
+          0.08377172804335524,
+          0.10222038515558048
+        ],
+        "recall": 0.23207231965881375,
+        "recall_ci": [
+          0.2208304951515965,
+          0.2438264221771878
+        ],
+        "coverage": 0.970873786407767,
+        "bestseller_share": null
+      },
+      {
+        "model": "ranker_client_centric@300",
+        "label": "LightGBM ranker (client-centric@300)",
+        "ndcg": 0.1356833383332718,
+        "ci": [
+          0.1280421460411728,
+          0.14352616832029208
+        ],
+        "diff": 0.0853752563471865,
+        "diff_ci": [
+          0.07655446963377731,
+          0.09406232306418276
+        ],
+        "recall": 0.22511751766941412,
+        "recall_ci": [
+          0.21390916722877895,
+          0.2371689790344487
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "content",
+        "label": "content match to products she liked (name, Sephora highlights, ingredients)",
+        "ndcg": 0.1287986553739325,
+        "ci": [
+          0.12088467165475801,
+          0.13711296612023915
+        ],
+        "diff": 0.07849057338784719,
+        "diff_ci": [
+          0.0692124849093387,
+          0.08743258201088082
+        ],
+        "recall": 0.21533210759569038,
+        "recall_ci": [
+          0.20312931407322102,
+          0.22799555549915942
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "ranker_original@100",
+        "label": "LightGBM ranker (original@100)",
+        "ndcg": 0.09938790960447234,
+        "ci": [
+          0.09364858133338604,
+          0.10526904685293804
+        ],
+        "diff": 0.04907982761838703,
+        "diff_ci": [
+          0.04174650949959595,
+          0.056493179416670446
+        ],
+        "recall": 0.19714372349559434,
+        "recall_ci": [
+          0.18595059823356208,
+          0.20942183837718178
+        ],
+        "coverage": 0.6990291262135923,
+        "bestseller_share": null
+      },
+      {
+        "model": "ranker_original@300",
+        "label": "LightGBM ranker (original@300)",
+        "ndcg": 0.09585123081861185,
+        "ci": [
+          0.09015341626868896,
+          0.10169287717494431
+        ],
+        "diff": 0.04554314883252654,
+        "diff_ci": [
+          0.03762788072671567,
+          0.05263419480754027
+        ],
+        "recall": 0.19055269791430735,
+        "recall_ci": [
+          0.1795501812598814,
+          0.2016248646492752
+        ],
+        "coverage": 0.7184466019417476,
+        "bestseller_share": null
+      },
+      {
+        "model": "hand_v2_consultation",
+        "label": "hand_v2_consultation",
+        "ndcg": 0.08143424375811173,
+        "ci": [
+          0.07634645424437864,
+          0.08686693720871722
+        ],
+        "diff": 0.031126161772026414,
+        "diff_ci": [
+          0.024120851827653573,
+          0.037885997534047346
+        ],
+        "recall": 0.1474924180267594,
+        "recall_ci": [
+          0.13848078865649982,
+          0.1569419237043212
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "random",
+        "label": "random order (no model beat random on validation)",
+        "ndcg": 0.050308081986085315,
+        "ci": [
+          0.04615725093475896,
+          0.054778700181581395
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09433961057167105,
+        "recall_ci": [
+          0.08653343186371121,
+          0.10256046555564431
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "popularity",
+        "label": "popularity (what clients liked most in the past year)",
+        "ndcg": 0.050308081986085315,
+        "ci": [
+          0.04615725093475896,
+          0.054778700181581395
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09433961057167105,
+        "recall_ci": [
+          0.08653343186371121,
+          0.10256046555564431
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "itemknn",
+        "label": "item-kNN: clients who liked what she liked also liked this",
+        "ndcg": 0.050308081986085315,
+        "ci": [
+          0.04615725093475896,
+          0.054778700181581395
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09433961057167105,
+        "recall_ci": [
+          0.08653343186371121,
+          0.10256046555564431
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "rp3beta",
+        "label": "RP3beta graph model on what she liked",
+        "ndcg": 0.050308081986085315,
+        "ci": [
+          0.04615725093475896,
+          0.054778700181581395
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09433961057167105,
+        "recall_ci": [
+          0.08653343186371121,
+          0.10256046555564431
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "ease",
+        "label": "EASE linear model on what she liked",
+        "ndcg": 0.050308081986085315,
+        "ci": [
+          0.04615725093475896,
+          0.054778700181581395
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09433961057167105,
+        "recall_ci": [
+          0.08653343186371121,
+          0.10256046555564431
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "ials",
+        "label": "iALS matrix factorisation",
+        "ndcg": 0.050308081986085315,
+        "ci": [
+          0.04615725093475896,
+          0.054778700181581395
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09433961057167105,
+        "recall_ci": [
+          0.08653343186371121,
+          0.10256046555564431
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "bpr",
+        "label": "BPR matrix factorisation",
+        "ndcg": 0.050308081986085315,
+        "ci": [
+          0.04615725093475896,
+          0.054778700181581395
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09433961057167105,
+        "recall_ci": [
+          0.08653343186371121,
+          0.10256046555564431
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      }
+    ]
+  },
+  "sensitivity": {
+    "catalogue": [
+      {
+        "model": "ease",
+        "label": "EASE linear model on what she liked",
+        "ndcg": 0.10716491305794801,
+        "ci": [
+          0.10117999571472998,
+          0.11327625346807715
+        ],
+        "diff": 0.06847452397725438,
+        "diff_ci": [
+          0.06315509400435054,
+          0.07336889002631097
+        ],
+        "recall": 0.14431932832708885,
+        "recall_ci": [
+          0.13651528316370337,
+          0.15284281349552967
+        ],
+        "coverage": 1.0,
+        "bestseller_share": 0.5444382852919438
+      },
+      {
+        "model": "rp3beta",
+        "label": "RP3beta graph model on what she liked",
+        "ndcg": 0.08623469911825833,
+        "ci": [
+          0.08109184316724298,
+          0.09119205117648017
+        ],
+        "diff": 0.04754431003756471,
+        "diff_ci": [
+          0.042764294915827956,
+          0.05179807905389527
+        ],
+        "recall": 0.13952970071318188,
+        "recall_ci": [
+          0.13150043370698858,
+          0.14781909825874626
+        ],
+        "coverage": 1.0,
+        "bestseller_share": 0.4939948263118995
+      },
+      {
+        "model": "itemknn",
+        "label": "item-kNN: clients who liked what she liked also liked this",
+        "ndcg": 0.06000249279986293,
+        "ci": [
+          0.05598526095194866,
+          0.06412950838213655
+        ],
+        "diff": 0.021312103719169306,
+        "diff_ci": [
+          0.01705945433136269,
+          0.025371631318674745
+        ],
+        "recall": 0.11877414334454245,
+        "recall_ci": [
+          0.1116615938646842,
+          0.12641087802984974
+        ],
+        "coverage": 1.0,
+        "bestseller_share": 0.48697339246119736
+      },
+      {
+        "model": "bpr",
+        "label": "BPR matrix factorisation",
+        "ndcg": 0.05750409413436947,
+        "ci": [
+          0.053045374387794365,
+          0.06221455867494734
+        ],
+        "diff": 0.01881370505367585,
+        "diff_ci": [
+          0.014179034081919659,
+          0.02336405518711096
+        ],
+        "recall": 0.1003205892202566,
+        "recall_ci": [
+          0.0930445465703919,
+          0.10783683315175832
+        ],
+        "coverage": 0.6516516516516516,
+        "bestseller_share": 0.45256836659275684
+      },
+      {
+        "model": "ranker_client_centric@300",
+        "label": "LightGBM ranker (client-centric@300)",
+        "ndcg": 0.04173051651330935,
+        "ci": [
+          0.037887341477936716,
+          0.04571586121336035
+        ],
+        "diff": 0.0030401274326157246,
+        "diff_ci": [
+          -0.0019198088286420062,
+          0.007774452619982035
+        ],
+        "recall": 0.0737473656958136,
+        "recall_ci": [
+          0.06748186832825136,
+          0.08019925074976349
+        ],
+        "coverage": 0.3913913913913914,
+        "bestseller_share": 0.7477087952697709
+      },
+      {
+        "model": "ranker_client_centric_binary@300",
+        "label": "LightGBM ranker (client-centric-binary@300)",
+        "ndcg": 0.040195278107038886,
+        "ci": [
+          0.03633887036214052,
+          0.04444656833899714
+        ],
+        "diff": 0.0015048890263452616,
+        "diff_ci": [
+          -0.0032393513888230464,
+          0.006257968370760453
+        ],
+        "recall": 0.07222597503916794,
+        "recall_ci": [
+          0.06577597839203993,
+          0.07921056812582587
+        ],
+        "coverage": 0.5155155155155156,
+        "bestseller_share": 0.7675720620842572
+      },
+      {
+        "model": "ranker_client_centric@100",
+        "label": "LightGBM ranker (client-centric@100)",
+        "ndcg": 0.03952453886785886,
+        "ci": [
+          0.035891611857482006,
+          0.04351480220786727
+        ],
+        "diff": 0.0008341497871652351,
+        "diff_ci": [
+          -0.0037705608476816827,
+          0.005151195763423133
+        ],
+        "recall": 0.06736046453341353,
+        "recall_ci": [
+          0.06154116843522331,
+          0.07377835843121319
+        ],
+        "coverage": 0.4014014014014014,
+        "bestseller_share": 0.772819660014782
+      },
+      {
+        "model": "popularity",
+        "label": "popularity (what clients liked most in the past year)",
+        "ndcg": 0.038690389080693624,
+        "ci": [
+          0.03567883865721571,
+          0.04178977929159253
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.10078745164665341,
+        "recall_ci": [
+          0.09375195256466044,
+          0.10840702952607056
+        ],
+        "coverage": 0.018018018018018018,
+        "bestseller_share": 1.0
+      },
+      {
+        "model": "hand_v2_consultation",
+        "label": "hand_v2_consultation",
+        "ndcg": 0.038690389080693624,
+        "ci": [
+          0.03567883865721571,
+          0.04178977929159253
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.10078745164665341,
+        "recall_ci": [
+          0.09375195256466044,
+          0.10840702952607056
+        ],
+        "coverage": 0.018018018018018018,
+        "bestseller_share": 1.0
+      },
+      {
+        "model": "ranker_original@300",
+        "label": "LightGBM ranker (original@300)",
+        "ndcg": 0.0378876603652546,
+        "ci": [
+          0.03418473169335028,
+          0.04202121024281853
+        ],
+        "diff": -0.0008027287154390231,
+        "diff_ci": [
+          -0.005509819831145878,
+          0.004219134876822721
+        ],
+        "recall": 0.0638510740922049,
+        "recall_ci": [
+          0.058019900628340206,
+          0.07004486199365634
+        ],
+        "coverage": 0.2972972972972973,
+        "bestseller_share": 0.7288433111603844
+      },
+      {
+        "model": "ranker_client_centric_binary@100",
+        "label": "LightGBM ranker (client-centric-binary@100)",
+        "ndcg": 0.036996806121934886,
+        "ci": [
+          0.03355430275169927,
+          0.04074682161960011
+        ],
+        "diff": -0.001693582958758738,
+        "diff_ci": [
+          -0.0062402459004033415,
+          0.0026453385219329965
+        ],
+        "recall": 0.07236859541460428,
+        "recall_ci": [
+          0.06565239589699123,
+          0.07861738691422727
+        ],
+        "coverage": 0.3913913913913914,
+        "bestseller_share": 0.8113082039911308
+      },
+      {
+        "model": "ials",
+        "label": "iALS matrix factorisation",
+        "ndcg": 0.033715212572192614,
+        "ci": [
+          0.030296554473725635,
+          0.03751949826630888
+        ],
+        "diff": -0.00497517650850101,
+        "diff_ci": [
+          -0.009106611987413167,
+          -0.0007202375141931445
+        ],
+        "recall": 0.06050804076025806,
+        "recall_ci": [
+          0.0546617000500731,
+          0.06642286721347142
+        ],
+        "coverage": 1.0,
+        "bestseller_share": 0.33782335550628234
+      },
+      {
+        "model": "ranker_original@100",
+        "label": "LightGBM ranker (original@100)",
+        "ndcg": 0.03195759375454234,
+        "ci": [
+          0.02838626348707195,
+          0.03571169638311104
+        ],
+        "diff": -0.006732795326151286,
+        "diff_ci": [
+          -0.01123182314415516,
+          -0.002065341629885844
+        ],
+        "recall": 0.05702160049443863,
+        "recall_ci": [
+          0.05090711768060715,
+          0.06304404547267628
+        ],
+        "coverage": 0.24324324324324326,
+        "bestseller_share": 0.7577790096082779
+      },
+      {
+        "model": "content",
+        "label": "content match to products she liked (name, Sephora highlights, ingredients)",
+        "ndcg": 0.0170963372792336,
+        "ci": [
+          0.01460397364870582,
+          0.019858559387225923
+        ],
+        "diff": -0.021594051801460023,
+        "diff_ci": [
+          -0.02574426961998079,
+          -0.01767129038548911
+        ],
+        "recall": 0.03181231595865742,
+        "recall_ci": [
+          0.02769017483194312,
+          0.036448324710519835
+        ],
+        "coverage": 1.0,
+        "bestseller_share": 0.13473762010347376
+      },
+      {
+        "model": "random",
+        "label": "random order (no model beat random on validation)",
+        "ndcg": 0.004936428389389885,
+        "ci": [
+          0.0037724157102402367,
+          0.006273096989956888
+        ],
+        "diff": -0.033753960691303736,
+        "diff_ci": [
+          -0.03725235088323616,
+          -0.030618452349584324
+        ],
+        "recall": 0.009105580405469542,
+        "recall_ci": [
+          0.007049871437690174,
+          0.011352114615695547
+        ],
+        "coverage": 1.0,
+        "bestseller_share": 0.09992609016999261
+      }
+    ],
+    "launch": [
+      {
+        "model": "ranker_original@100",
+        "label": "LightGBM ranker (original@100)",
+        "ndcg": 0.2166928403310257,
+        "ci": [
+          0.20888663510545363,
+          0.22426460974210563
+        ],
+        "diff": 0.16363000339942674,
+        "diff_ci": [
+          0.15508108517081534,
+          0.1725578585736256
+        ],
+        "recall": 0.29557719767287305,
+        "recall_ci": [
+          0.28484349081616556,
+          0.3056777664804916
+        ],
+        "coverage": 0.6213592233009708,
+        "bestseller_share": null
+      },
+      {
+        "model": "ranker_original@300",
+        "label": "LightGBM ranker (original@300)",
+        "ndcg": 0.2092362311964079,
+        "ci": [
+          0.2016609635661743,
+          0.21667397534428384
+        ],
+        "diff": 0.15617339426480897,
+        "diff_ci": [
+          0.1477939301289856,
+          0.16467069233482493
+        ],
+        "recall": 0.28888999582127545,
+        "recall_ci": [
+          0.2787956634268838,
+          0.29926848104036347
+        ],
+        "coverage": 0.6699029126213593,
+        "bestseller_share": null
+      },
+      {
+        "model": "ranker_client_centric_binary@100",
+        "label": "LightGBM ranker (client-centric-binary@100)",
+        "ndcg": 0.16100823163481462,
+        "ci": [
+          0.15411492964241094,
+          0.16823717768311378
+        ],
+        "diff": 0.10794539470321567,
+        "diff_ci": [
+          0.10056878542772524,
+          0.11635400896637793
+        ],
+        "recall": 0.24190139770708488,
+        "recall_ci": [
+          0.23235438193487662,
+          0.2521392122665819
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "ranker_client_centric_binary@300",
+        "label": "LightGBM ranker (client-centric-binary@300)",
+        "ndcg": 0.15862030117093862,
+        "ci": [
+          0.15157996587386036,
+          0.16569798860755838
+        ],
+        "diff": 0.10555746423933966,
+        "diff_ci": [
+          0.09759556855580356,
+          0.11394367334029759
+        ],
+        "recall": 0.244389877061678,
+        "recall_ci": [
+          0.23436996855391407,
+          0.25479826381244475
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "ranker_client_centric@100",
+        "label": "LightGBM ranker (client-centric@100)",
+        "ndcg": 0.14913712011841315,
+        "ci": [
+          0.14205077232207372,
+          0.15625864336198958
+        ],
+        "diff": 0.0960742831868142,
+        "diff_ci": [
+          0.08825356585408024,
+          0.10438706777479059
+        ],
+        "recall": 0.22650073481678937,
+        "recall_ci": [
+          0.2165636172756285,
+          0.2363670538666836
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "ranker_client_centric@300",
+        "label": "LightGBM ranker (client-centric@300)",
+        "ndcg": 0.14472735848962195,
+        "ci": [
+          0.13803017633690773,
+          0.151724185015291
+        ],
+        "diff": 0.091664521558023,
+        "diff_ci": [
+          0.08390945070941849,
+          0.09983160487959661
+        ],
+        "recall": 0.22507485411069536,
+        "recall_ci": [
+          0.2159519125679153,
+          0.2352058256656894
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "content",
+        "label": "content match to products she liked (name, Sephora highlights, ingredients)",
+        "ndcg": 0.12238712559590721,
+        "ci": [
+          0.11562417406709254,
+          0.12925274125329458
+        ],
+        "diff": 0.06932428866430826,
+        "diff_ci": [
+          0.06158298575145777,
+          0.07676751138008951
+        ],
+        "recall": 0.20250840002765358,
+        "recall_ci": [
+          0.19141355543865912,
+          0.21227654294264184
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "hand_v2_consultation",
+        "label": "hand_v2_consultation",
+        "ndcg": 0.07260107959144717,
+        "ci": [
+          0.06849569855357951,
+          0.0773305071845673
+        ],
+        "diff": 0.019538242659848215,
+        "diff_ci": [
+          0.013888136465960573,
+          0.0255628671261229
+        ],
+        "recall": 0.12563426403770006,
+        "recall_ci": [
+          0.1184593445982664,
+          0.13350884927232673
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "random",
+        "label": "random order (no model beat random on validation)",
+        "ndcg": 0.05306283693159895,
+        "ci": [
+          0.04920608208114463,
+          0.05695906192819773
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09855267028697123,
+        "recall_ci": [
+          0.09152454378165277,
+          0.10581109962367366
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "popularity",
+        "label": "popularity (what clients liked most in the past year)",
+        "ndcg": 0.05306283693159895,
+        "ci": [
+          0.04920608208114463,
+          0.05695906192819773
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09855267028697123,
+        "recall_ci": [
+          0.09152454378165277,
+          0.10581109962367366
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "itemknn",
+        "label": "item-kNN: clients who liked what she liked also liked this",
+        "ndcg": 0.05306283693159895,
+        "ci": [
+          0.04920608208114463,
+          0.05695906192819773
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09855267028697123,
+        "recall_ci": [
+          0.09152454378165277,
+          0.10581109962367366
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "rp3beta",
+        "label": "RP3beta graph model on what she liked",
+        "ndcg": 0.05306283693159895,
+        "ci": [
+          0.04920608208114463,
+          0.05695906192819773
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09855267028697123,
+        "recall_ci": [
+          0.09152454378165277,
+          0.10581109962367366
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "ease",
+        "label": "EASE linear model on what she liked",
+        "ndcg": 0.05306283693159895,
+        "ci": [
+          0.04920608208114463,
+          0.05695906192819773
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09855267028697123,
+        "recall_ci": [
+          0.09152454378165277,
+          0.10581109962367366
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "ials",
+        "label": "iALS matrix factorisation",
+        "ndcg": 0.05306283693159895,
+        "ci": [
+          0.04920608208114463,
+          0.05695906192819773
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09855267028697123,
+        "recall_ci": [
+          0.09152454378165277,
+          0.10581109962367366
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "bpr",
+        "label": "BPR matrix factorisation",
+        "ndcg": 0.05306283693159895,
+        "ci": [
+          0.04920608208114463,
+          0.05695906192819773
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09855267028697123,
+        "recall_ci": [
+          0.09152454378165277,
+          0.10581109962367366
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      }
+    ]
+  },
+  "folds": {
+    "catalogue": [
+      {
+        "model": "random",
+        "label": "random order (no model beat random on validation)",
+        "F1": 0.007212478594653932,
+        "F2": 0.005839648822760733,
+        "F3_B": 0.006407643298115438
+      },
+      {
+        "model": "popularity",
+        "label": "popularity (what clients liked most in the past year)",
+        "F1": 0.02979419667050001,
+        "F2": 0.046692883469179366,
+        "F3_B": 0.04048142857685781
+      },
+      {
+        "model": "hand_v2_consultation",
+        "label": "hand_v2_consultation",
+        "F1": 0.02979419667050001,
+        "F2": 0.046692883469179366,
+        "F3_B": 0.04048142857685781
+      },
+      {
+        "model": "content",
+        "label": "content match to products she liked (name, Sephora highlights, ingredients)",
+        "F1": 0.03972272881559145,
+        "F2": 0.027678459805029452,
+        "F3_B": 0.03651866003882876
+      },
+      {
+        "model": "itemknn",
+        "label": "item-kNN: clients who liked what she liked also liked this",
+        "F1": 0.05422595993491129,
+        "F2": 0.055440449008397744,
+        "F3_B": 0.0495657624403073
+      },
+      {
+        "model": "rp3beta",
+        "label": "RP3beta graph model on what she liked",
+        "F1": 0.05474621611950048,
+        "F2": 0.06189497877525578,
+        "F3_B": 0.04520853068025489
+      },
+      {
+        "model": "ease",
+        "label": "EASE linear model on what she liked",
+        "F1": 0.05586373878539852,
+        "F2": 0.05229893160967639,
+        "F3_B": 0.04093119094505414
+      },
+      {
+        "model": "ials",
+        "label": "iALS matrix factorisation",
+        "F1": 0.03342541066587339,
+        "F2": 0.05030035484863122,
+        "F3_B": 0.04144246820675659
+      },
+      {
+        "model": "bpr",
+        "label": "BPR matrix factorisation",
+        "F1": 0.04166066662711159,
+        "F2": 0.047466270171040194,
+        "F3_B": 0.03287118469752247
+      },
+      {
+        "model": "ranker_original@100",
+        "label": "LightGBM ranker (original@100)",
+        "F1": 0.07851086129905438,
+        "F2": 0.07820587320001984,
+        "F3_B": 0.0653705938889242
+      },
+      {
+        "model": "ranker_original@300",
+        "label": "LightGBM ranker (original@300)",
+        "F1": 0.07835169802579443,
+        "F2": 0.08029954193287493,
+        "F3_B": 0.06865760672202674
+      },
+      {
+        "model": "ranker_client_centric@100",
+        "label": "LightGBM ranker (client-centric@100)",
+        "F1": 0.07656569716702623,
+        "F2": 0.07517727529561513,
+        "F3_B": 0.07892838416616214
+      },
+      {
+        "model": "ranker_client_centric@300",
+        "label": "LightGBM ranker (client-centric@300)",
+        "F1": 0.07856850412592582,
+        "F2": 0.06236042111073742,
+        "F3_B": 0.07868395134919996
+      },
+      {
+        "model": "ranker_client_centric_binary@100",
+        "label": "LightGBM ranker (client-centric-binary@100)",
+        "F1": 0.06545988283399282,
+        "F2": 0.07568631279733629,
+        "F3_B": 0.06512796270462311
+      },
+      {
+        "model": "ranker_client_centric_binary@300",
+        "label": "LightGBM ranker (client-centric-binary@300)",
+        "F1": 0.06216870381570587,
+        "F2": 0.0741398631578129,
+        "F3_B": 0.0618932504286686
+      }
+    ],
+    "launch": [
+      {
+        "model": "random",
+        "label": "random order (no model beat random on validation)",
+        "F1": 0.01236239445573572,
+        "F2": 0.020772549619104044,
+        "F3_B": 0.032112860937054837
+      },
+      {
+        "model": "popularity",
+        "label": "popularity (what clients liked most in the past year)",
+        "F1": 0.01236239445573572,
+        "F2": 0.020772549619104044,
+        "F3_B": 0.032112860937054837
+      },
+      {
+        "model": "hand_v2_consultation",
+        "label": "hand_v2_consultation",
+        "F1": 0.045921987179665696,
+        "F2": 0.04864861784882904,
+        "F3_B": 0.02844353704165141
+      },
+      {
+        "model": "content",
+        "label": "content match to products she liked (name, Sephora highlights, ingredients)",
+        "F1": 0.03953950862027208,
+        "F2": 0.06319059814887817,
+        "F3_B": 0.07513106422743933
+      },
+      {
+        "model": "itemknn",
+        "label": "item-kNN: clients who liked what she liked also liked this",
+        "F1": 0.01236239445573572,
+        "F2": 0.020772549619104044,
+        "F3_B": 0.032112860937054837
+      },
+      {
+        "model": "rp3beta",
+        "label": "RP3beta graph model on what she liked",
+        "F1": 0.01236239445573572,
+        "F2": 0.020772549619104044,
+        "F3_B": 0.032112860937054837
+      },
+      {
+        "model": "ease",
+        "label": "EASE linear model on what she liked",
+        "F1": 0.01236239445573572,
+        "F2": 0.020772549619104044,
+        "F3_B": 0.032112860937054837
+      },
+      {
+        "model": "ials",
+        "label": "iALS matrix factorisation",
+        "F1": 0.01236239445573572,
+        "F2": 0.020772549619104044,
+        "F3_B": 0.032112860937054837
+      },
+      {
+        "model": "bpr",
+        "label": "BPR matrix factorisation",
+        "F1": 0.01236239445573572,
+        "F2": 0.020772549619104044,
+        "F3_B": 0.032112860937054837
+      },
+      {
+        "model": "ranker_original@100",
+        "label": "LightGBM ranker (original@100)",
+        "F1": 0.0859638033505459,
+        "F2": 0.15236214568426273,
+        "F3_B": 0.036287007198247394
+      },
+      {
+        "model": "ranker_original@300",
+        "label": "LightGBM ranker (original@300)",
+        "F1": 0.07618209137259328,
+        "F2": 0.13935576423583462,
+        "F3_B": 0.033247219415434695
+      },
+      {
+        "model": "ranker_client_centric@100",
+        "label": "LightGBM ranker (client-centric@100)",
+        "F1": 0.106725224873503,
+        "F2": 0.16771362646521015,
+        "F3_B": 0.07240266972257396
+      },
+      {
+        "model": "ranker_client_centric@300",
+        "label": "LightGBM ranker (client-centric@300)",
+        "F1": 0.09444616557635822,
+        "F2": 0.16113812748985434,
+        "F3_B": 0.0691896859901887
+      },
+      {
+        "model": "ranker_client_centric_binary@100",
+        "label": "LightGBM ranker (client-centric-binary@100)",
+        "F1": 0.10660142640332072,
+        "F2": 0.1635126731291841,
+        "F3_B": 0.05957387566163043
+      },
+      {
+        "model": "ranker_client_centric_binary@300",
+        "label": "LightGBM ranker (client-centric-binary@300)",
+        "F1": 0.1023039972468287,
+        "F2": 0.15658826084038135,
+        "F3_B": 0.05315541480023055
+      }
+    ]
+  },
+  "fold_names": [
+    "F1",
+    "F2",
+    "F3_B"
+  ],
+  "first_run": {
+    "catalogue": [
+      {
+        "model": "itemknn",
+        "label": "item-kNN: clients who liked what she liked also liked this",
+        "ndcg": 0.06618853072848865,
+        "ci": [
+          0.06160319584037135,
+          0.07094341168541424
+        ],
+        "diff": 0.02425012136259793,
+        "diff_ci": [
+          0.01961883875351372,
+          0.02869649438721766
+        ],
+        "recall": 0.1370769185517387,
+        "recall_ci": [
+          0.1280884210380613,
+          0.14596643248172023
+        ],
+        "coverage": 0.997997997997998,
+        "bestseller_share": 0.4910834968388925
+      },
+      {
+        "model": "popularity",
+        "label": "popularity (what clients liked most in the past year)",
+        "ndcg": 0.04193840936589072,
+        "ci": [
+          0.03867286411497963,
+          0.04526196685830096
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.11341783715884436,
+        "recall_ci": [
+          0.1054936937895571,
+          0.12179592256930384
+        ],
+        "coverage": 0.018018018018018018,
+        "bestseller_share": 1.0
+      },
+      {
+        "model": "hand_v2_consultation",
+        "label": "hand_v2_consultation",
+        "ndcg": 0.04193840936589072,
+        "ci": [
+          0.03867286411497963,
+          0.04526196685830096
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.11341783715884436,
+        "recall_ci": [
+          0.1054936937895571,
+          0.12179592256930384
+        ],
+        "coverage": 0.018018018018018018,
+        "bestseller_share": 1.0
+      },
+      {
+        "model": "ranker",
+        "label": "ranker",
+        "ndcg": 0.0358824079467097,
+        "ci": [
+          0.031944448667833275,
+          0.03990750801478568
+        ],
+        "diff": -0.006056001419181022,
+        "diff_ci": [
+          -0.011333596251694581,
+          -0.0012122535302323278
+        ],
+        "recall": 0.0643771562836311,
+        "recall_ci": [
+          0.05784690429474603,
+          0.07078445252456042
+        ],
+        "coverage": 0.2992992992992993,
+        "bestseller_share": 0.8479398299542185
+      },
+      {
+        "model": "random",
+        "label": "random order (no model beat random on validation)",
+        "ndcg": 0.0051922182666491535,
+        "ci": [
+          0.003964629469027552,
+          0.0065252466252965265
+        ],
+        "diff": -0.03674619109924157,
+        "diff_ci": [
+          -0.040148906891858266,
+          -0.033468392762666874
+        ],
+        "recall": 0.0103650413002931,
+        "recall_ci": [
+          0.007994574037739503,
+          0.012850598309231399
+        ],
+        "coverage": 1.0,
+        "bestseller_share": 0.09834314366688468
+      }
+    ],
+    "launch": [
+      {
+        "model": "ranker",
+        "label": "ranker",
+        "ndcg": 0.10600095320003446,
+        "ci": [
+          0.09955797938094967,
+          0.11229720441775816
+        ],
+        "diff": 0.05569287121394914,
+        "diff_ci": [
+          0.04777389495374174,
+          0.0631308794717523
+        ],
+        "recall": 0.2045587584862316,
+        "recall_ci": [
+          0.19296958010950838,
+          0.21612752076857022
+        ],
+        "coverage": 0.7087378640776699,
+        "bestseller_share": null
+      },
+      {
+        "model": "hand_v2_consultation",
+        "label": "hand_v2_consultation",
+        "ndcg": 0.08143424375811173,
+        "ci": [
+          0.07634645424437864,
+          0.08686693720871722
+        ],
+        "diff": 0.031126161772026414,
+        "diff_ci": [
+          0.024120851827653573,
+          0.037885997534047346
+        ],
+        "recall": 0.1474924180267594,
+        "recall_ci": [
+          0.13848078865649982,
+          0.1569419237043212
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "random",
+        "label": "random order (no model beat random on validation)",
+        "ndcg": 0.050308081986085315,
+        "ci": [
+          0.04615725093475896,
+          0.054778700181581395
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09433961057167105,
+        "recall_ci": [
+          0.08653343186371121,
+          0.10256046555564431
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "popularity",
+        "label": "popularity (what clients liked most in the past year)",
+        "ndcg": 0.050308081986085315,
+        "ci": [
+          0.04615725093475896,
+          0.054778700181581395
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09433961057167105,
+        "recall_ci": [
+          0.08653343186371121,
+          0.10256046555564431
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      },
+      {
+        "model": "itemknn",
+        "label": "item-kNN: clients who liked what she liked also liked this",
+        "ndcg": 0.050308081986085315,
+        "ci": [
+          0.04615725093475896,
+          0.054778700181581395
+        ],
+        "diff": 0.0,
+        "diff_ci": [
+          0.0,
+          0.0
+        ],
+        "recall": 0.09433961057167105,
+        "recall_ci": [
+          0.08653343186371121,
+          0.10256046555564431
+        ],
+        "coverage": 1.0,
+        "bestseller_share": null
+      }
+    ]
+  },
+  "error_slices": [
+    {
+      "dimension": "history length",
+      "group": "1",
+      "clients": 1017,
+      "popularity": 0.04119258322798145,
+      "hand_v2_consultation": 0.04119258322798145,
+      "content": 0.028023598820058997,
+      "itemknn": 0.06383153064568993,
+      "rp3beta": 0.08497214028187479,
+      "ease": 0.08685676827269748,
+      "ials": 0.048180924287118974,
+      "bpr": 0.07484431333988856,
+      "ranker_original@300": 0.07719717188743738,
+      "ranker_client_centric@300": 0.07370885423982768,
+      "ranker_client_centric_binary@300": 0.09981270777730955
+    },
+    {
+      "dimension": "history length",
+      "group": "10+",
+      "clients": 1370,
+      "popularity": 0.1986696211331248,
+      "hand_v2_consultation": 0.1986696211331248,
+      "content": 0.028858185610010426,
+      "itemknn": 0.23196761673039046,
+      "rp3beta": 0.24377186884486157,
+      "ease": 0.2536536901865369,
+      "ials": 0.08843268450932684,
+      "bpr": 0.15853203568532034,
+      "ranker_original@300": 0.05750521376433784,
+      "ranker_client_centric@300": 0.04864529023288148,
+      "ranker_client_centric_binary@300": 0.052743309002433084
+    },
+    {
+      "dimension": "history length",
+      "group": "2-4",
+      "clients": 1401,
+      "popularity": 0.07494646680942184,
+      "hand_v2_consultation": 0.07494646680942184,
+      "content": 0.03598620033309541,
+      "itemknn": 0.09451582203188198,
+      "rp3beta": 0.12461337140137996,
+      "ease": 0.13103735427075897,
+      "ials": 0.056090887461337134,
+      "bpr": 0.09026290744706161,
+      "ranker_original@300": 0.09528907922912205,
+      "ranker_client_centric@300": 0.10039852486319295,
+      "ranker_client_centric_binary@300": 0.09114917915774445
+    },
+    {
+      "dimension": "history length",
+      "group": "5-9",
+      "clients": 799,
+      "popularity": 0.1266300137076107,
+      "hand_v2_consultation": 0.1266300137076107,
+      "content": 0.03994576554025865,
+      "itemknn": 0.14223136062935815,
+      "rp3beta": 0.20387240002383933,
+      "ease": 0.20880564991954229,
+      "ials": 0.06307884856070087,
+      "bpr": 0.13643244531855295,
+      "ranker_original@300": 0.07103820251504858,
+      "ranker_client_centric@300": 0.06621967936110613,
+      "ranker_client_centric_binary@300": 0.06170212765957447
+    },
+    {
+      "dimension": "skin type",
+      "group": "combination",
+      "clients": 2391,
+      "popularity": 0.11615167327212497,
+      "hand_v2_consultation": 0.11615167327212497,
+      "content": 0.034271374798350955,
+      "itemknn": 0.1356681470859639,
+      "rp3beta": 0.1637436683860774,
+      "ease": 0.16785232983476397,
+      "ials": 0.06248946114065311,
+      "bpr": 0.11467440733438222,
+      "ranker_original@300": 0.07902435057391141,
+      "ranker_client_centric@300": 0.07706229710621179,
+      "ranker_client_centric_binary@300": 0.0802292658315243
+    },
+    {
+      "dimension": "skin type",
+      "group": "dry",
+      "clients": 906,
+      "popularity": 0.10820368618381865,
+      "hand_v2_consultation": 0.10820368618381865,
+      "content": 0.02694996320824135,
+      "itemknn": 0.13307053505729002,
+      "rp3beta": 0.14943673569501387,
+      "ease": 0.15360997231858162,
+      "ials": 0.05907705245453589,
+      "bpr": 0.09018842636392306,
+      "ranker_original@300": 0.06615596201688917,
+      "ranker_client_centric@300": 0.05605355828865762,
+      "ranker_client_centric_binary@300": 0.06072917761659483
+    },
+    {
+      "dimension": "skin type",
+      "group": "normal",
+      "clients": 696,
+      "popularity": 0.12374452654625068,
+      "hand_v2_consultation": 0.12374452654625068,
+      "content": 0.04046934865900383,
+      "itemknn": 0.14661159003831417,
+      "rp3beta": 0.20009578544061302,
+      "ease": 0.21032088122605364,
+      "ials": 0.08532088122605364,
+      "bpr": 0.14570333880678707,
+      "ranker_original@300": 0.08079501915708813,
+      "ranker_client_centric@300": 0.08122605363984674,
+      "ranker_client_centric_binary@300": 0.09201559934318555
+    },
+    {
+      "dimension": "skin type",
+      "group": "oily",
+      "clients": 471,
+      "popularity": 0.09855676877969871,
+      "hand_v2_consultation": 0.09855676877969871,
+      "content": 0.0308057830350824,
+      "itemknn": 0.14529875644525325,
+      "rp3beta": 0.16329238701850166,
+      "ease": 0.17834900414518248,
+      "ials": 0.06528662420382166,
+      "bpr": 0.12392073602264683,
+      "ranker_original@300": 0.07416843595187544,
+      "ranker_client_centric@300": 0.0754069355980184,
+      "ranker_client_centric_binary@300": 0.07280861389141645
+    },
+    {
+      "dimension": "skin type",
+      "group": "unknown",
+      "clients": 123,
+      "popularity": 0.09715447154471545,
+      "hand_v2_consultation": 0.09715447154471545,
+      "content": 0.01084010840108401,
+      "itemknn": 0.10853658536585366,
+      "rp3beta": 0.12018970189701897,
+      "ease": 0.12493224932249324,
+      "ials": 0.04932249322493225,
+      "bpr": 0.10650406504065042,
+      "ranker_original@300": 0.06097560975609756,
+      "ranker_client_centric@300": 0.06571815718157181,
+      "ranker_client_centric_binary@300": 0.04539295392953929
+    },
+    {
+      "dimension": "product age",
+      "group": "> 1 year",
+      "clients": 3838,
+      "popularity": 0.12331571503014963,
+      "hand_v2_consultation": 0.12331571503014963,
+      "content": 0.0321434775056453,
+      "itemknn": 0.1407373632100052,
+      "rp3beta": 0.1938168440904241,
+      "ease": 0.20215451996327455,
+      "ials": 0.06659284349487579,
+      "bpr": 0.12966171617161715,
+      "ranker_original@300": 0.08231966053748231,
+      "ranker_client_centric@300": 0.07440538226755006,
+      "ranker_client_centric_binary@300": 0.08470123328122285
+    },
+    {
+      "dimension": "product age",
+      "group": "90-365 days",
+      "clients": 954,
+      "popularity": 0.14303933313367276,
+      "hand_v2_consultation": 0.14303933313367276,
+      "content": 0.03380503144654088,
+      "itemknn": 0.20024458420684832,
+      "rp3beta": 0.11020265548567434,
+      "ease": 0.12216981132075473,
+      "ials": 0.07337526205450734,
+      "bpr": 0.09086303284416493,
+      "ranker_original@300": 0.06187980433263452,
+      "ranker_client_centric@300": 0.05984576220425277,
+      "ranker_client_centric_binary@300": 0.034154437456324245
+    },
+    {
+      "dimension": "product age",
+      "group": "< 90 days",
+      "clients": 397,
+      "popularity": 0.0,
+      "hand_v2_consultation": 0.0,
+      "content": 0.017632241813602016,
+      "itemknn": 0.022670025188916875,
+      "rp3beta": 0.03526448362720403,
+      "ease": 0.020151133501259445,
+      "ials": 0.027707808564231738,
+      "bpr": 0.012594458438287154,
+      "ranker_original@300": 0.036523929471032744,
+      "ranker_client_centric@300": 0.060033585222502094,
+      "ranker_client_centric_binary@300": 0.05415617128463476
+    },
+    {
+      "dimension": "price tier",
+      "group": "most expensive quarter",
+      "clients": 1005,
+      "popularity": 0.1179933665008292,
+      "hand_v2_consultation": 0.1179933665008292,
+      "content": 0.06003316749585406,
+      "itemknn": 0.0955223880597015,
+      "rp3beta": 0.12935323383084577,
+      "ease": 0.12139303482587065,
+      "ials": 0.06119402985074627,
+      "bpr": 0.0736318407960199,
+      "ranker_original@300": 0.1230514096185738,
+      "ranker_client_centric@300": 0.13399668325041458,
+      "ranker_client_centric_binary@300": 0.1386401326699834
+    },
+    {
+      "dimension": "price tier",
+      "group": "3rd quarter",
+      "clients": 2145,
+      "popularity": 0.18177933177933178,
+      "hand_v2_consultation": 0.18177933177933178,
+      "content": 0.022299922299922302,
+      "itemknn": 0.24456099456099453,
+      "rp3beta": 0.2985625485625486,
+      "ease": 0.3166278166278166,
+      "ials": 0.08892773892773893,
+      "bpr": 0.19444444444444445,
+      "ranker_original@300": 0.07296037296037296,
+      "ranker_client_centric@300": 0.06705516705516705,
+      "ranker_client_centric_binary@300": 0.07066822066822066
+    },
+    {
+      "dimension": "price tier",
+      "group": "2nd quarter",
+      "clients": 1297,
+      "popularity": 0.011289789624407975,
+      "hand_v2_consultation": 0.011289789624407975,
+      "content": 0.031097404266255457,
+      "itemknn": 0.028141865844255976,
+      "rp3beta": 0.03855050115651504,
+      "ease": 0.03771524029812388,
+      "ials": 0.03880750449755847,
+      "bpr": 0.028141865844255976,
+      "ranker_original@300": 0.06971215625803136,
+      "ranker_client_centric@300": 0.08029518669456988,
+      "ranker_client_centric_binary@300": 0.06380107941403239
+    },
+    {
+      "dimension": "price tier",
+      "group": "cheapest quarter",
+      "clients": 1683,
+      "popularity": 0.08694791047732225,
+      "hand_v2_consultation": 0.08694791047732225,
+      "content": 0.02802535155476332,
+      "itemknn": 0.1275995246583482,
+      "rp3beta": 0.09269162210338681,
+      "ease": 0.10843731431966726,
+      "ials": 0.049019607843137254,
+      "bpr": 0.09204793028322439,
+      "ranker_original@300": 0.047979797979797977,
+      "ranker_client_centric@300": 0.03723509605862547,
+      "ranker_client_centric_binary@300": 0.05283224400871459
+    }
+  ],
+  "candidate_coverage": {
+    "catalogue": 0.6005113024757804,
+    "launch": 1.0
+  },
+  "ablation_first_ranker": [
+    {
+      "dropped": "none",
+      "ndcg@10": 0.06124578268827499,
+      "recall@10": 0.09827922707871534,
+      "\u0394ndcg": 0.0
+    },
+    {
+      "dropped": "product",
+      "ndcg@10": 0.0548167485039261,
+      "recall@10": 0.10408776773429229,
+      "\u0394ndcg": -0.0064290341843488905
+    },
+    {
+      "dropped": "price",
+      "ndcg@10": 0.059082252119260874,
+      "recall@10": 0.09128330447571814,
+      "\u0394ndcg": -0.0021635305690141174
+    },
+    {
+      "dropped": "client",
+      "ndcg@10": 0.04759324288226733,
+      "recall@10": 0.09060118454238912,
+      "\u0394ndcg": -0.013652539806007662
+    },
+    {
+      "dropped": "match",
+      "ndcg@10": 0.05926523367892488,
+      "recall@10": 0.0954440522184589,
+      "\u0394ndcg": -0.001980549009350109
+    },
+    {
+      "dropped": "collab",
+      "ndcg@10": 0.051771417015447886,
+      "recall@10": 0.08182159558762302,
+      "\u0394ndcg": -0.009474365672827105
+    }
+  ],
+  "tuned": {
+    "itemknn": {
+      "shrink": 10
+    },
+    "rp3beta": {
+      "alpha": 1.0,
+      "beta": 0.15
+    },
+    "ease": {
+      "lam": 30000
+    },
+    "ials": {
+      "factors": 128,
+      "reg": 10.0,
+      "alpha": 20
+    },
+    "bpr": {
+      "factors": 64,
+      "lr": 0.01,
+      "weight_decay": 0.001
+    }
+  }
+}

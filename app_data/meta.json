@@ -1,0 +1,34 @@
+{
+  "data_end": "2023-03-22",
+  "popularity_window_days": 365,
+  "min_group_size": 20,
+  "guard": {
+    "m": 20,
+    "guard_gap": 0.1,
+    "guard_min_n": 20
+  },
+  "dataset_credit": "Sephora Products and Skincare Reviews by nadyinky (Kaggle), CC BY 4.0, scraped March 2023",
+  "returning_clients": {
+    "sophie": {
+      "usual_spend": 38.5,
+      "routine_model": "popularity",
+      "routine_model_label": "popularity (what clients liked most in the past year)",
+      "launch_model": "ranker_client_centric@100",
+      "launch_model_label": "LightGBM ranker (client-centric@100)"
+    },
+    "emma": {
+      "usual_spend": 66.5,
+      "routine_model": "popularity",
+      "routine_model_label": "popularity (what clients liked most in the past year)",
+      "launch_model": "ranker_client_centric@100",
+      "launch_model_label": "LightGBM ranker (client-centric@100)"
+    },
+    "margaux": {
+      "usual_spend": 24.0,
+      "routine_model": "popularity",
+      "routine_model_label": "popularity (what clients liked most in the past year)",
+      "launch_model": "ranker_client_centric@100",
+      "launch_model_label": "LightGBM ranker (client-centric@100)"
+    }
+  }
+}
